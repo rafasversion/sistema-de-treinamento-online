@@ -1,0 +1,26 @@
+#header {
+    background-color:  rgb(3, 12, 61);
+    height: 500px;
+    position:relative;
+    content: '.content-h';
+}
+
+
+#header:after {
+    background: inherit;
+    bottom: 0px;
+    content: '.content-h';
+    display: block;
+    height: 50%;
+    left:0;
+    position:absolute;
+    right: 0;
+    transform: skewY(1.5deg);
+    transform-origin: 0%;
+}
+
+.text-white {
+    text-align: left;
+    top: 200px;
+}
+

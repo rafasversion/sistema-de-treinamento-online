@@ -1,0 +1,157 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    text-decoration: none
+  }
+
+  body {
+    font-size: 100%;
+    background: url("/img/bannerlogin.jpeg");
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+    width: 100%;
+    height: 1080px;
+    
+  }
+
+  .logo {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-around;
+    width: 300px;
+    height: 40%;
+    text-align: center;
+    margin-bottom: 30px;
+  }
+
+  .container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin-top: 1%;
+  }
+
+  .cabecalho {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-around;
+    padding: 24px;
+    background-color: transparent;
+  }
+
+  .logo1 {
+    height: 50px;
+  }
+
+  .menu {
+    display: flex;
+    gap: 32px;
+  }
+
+  .nav-link {
+    color: white;
+    font-family: 'Sarala', sans-serif;
+    font-size: 18px;
+    height: 45px;
+    align-items: center;
+  }
+
+  .card-title {
+    text-align: center;
+    font-size: 25px;
+    color:dodgerblue;
+  }
+
+  .card-text {
+    text-align: center;
+    color: cadetblue;
+  }
+  
+  .mask {
+      background: linear-gradient(180deg, #060E1A 0%, rgba(5, 12, 22, 0.844189) 22.98%, rgba(0, 0, 0, 0.16) 100%);
+    }
+
+    .card {
+       border-radius: 6%;
+       display: flex;
+       flex-direction: column;
+       align-items: center;
+       gap: 78px;
+       justify-content: space-around;
+       width: 40%;
+       
+    }
+
+    
+
+    .card-body {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: space-around;
+      gap: 78px;
+      margin: 5%;
+      margin-left: 5%;
+      margin-right: 5%;
+      
+    }
+
+   .or {
+    text-align: center;
+    margin-top: 5%;
+   } 
+
+   .contas {
+    text-align: center;
+   }
+  
+  
+  @media only screen and (max-width: 768px) {
+    
+  body {
+    width: 100%;
+    height: 1100px;
+  }
+
+  .container {
+    margin-top: 10%;
+    gap: 0px;
+  }
+
+  .card {
+    width: 80%;
+    gap: 0px;
+    border-radius:30px;
+  }
+
+  .card-body {
+    margin-top: 1%;
+    margin-bottom: 1%;
+  }
+
+  .card-text {
+    margin-bottom: 0%;
+    margin-top: 0%;
+  }
+
+  .or {
+    margin-top: 2%;
+  }
+
+  .contas {
+    margin-top: 1%;
+   }
+
+    #nome {
+    margin-top: 1%;    
+    }
+
+    .col-md-6 {
+     margin: 1%;
+    }
+   
+  }

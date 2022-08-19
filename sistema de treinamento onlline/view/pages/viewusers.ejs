@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head></head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE-edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0-beta1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-0evHe/X+R7YkIZDRvuzKMRqM+OrBnVFBL6DOitfPri4tjfHxaWutUpFmBp4vmVor" crossorigin="anonymous">
+    <link href="../css/tb-user.css" rel="stylesheet" >
+    <title>Perfil</title>
+</head>
+<body>
+
+    
+    <nav class="navbar navbar-expand-lg navbar-dark bg-primary">
+        <div class="container-fluid">
+          <a class="navbar-brand" href="#">Daniela Teixeira</a>
+          <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+          </button>
+          <div class="collapse navbar-collapse" id="navbarNav">
+            <ul class="navbar-nav">
+              <li class="nav-item">
+                <a class="nav-link" href="/">Home</a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link" href="/logout">Sair</a>
+              </li>
+              <% result.forEach(user => { %>
+                <li class="nav-item">
+                  <a class="nav-link" href="/viewuser/<%= user.id %>"><%= user.id %></a>
+                 </li>
+                 <% }) %>
+            </ul>
+          </div>
+        </div>
+      </nav>
+
+
+      
+      <div class="container align-self-center" id="c-user">
+        <h3 class='p-3'>Usuários cadastrados</h3>
+        
+        <table id="tb-users" class="table table-striped table-bordered table-hover table-responsive align-center">
+        <thead class="thead-inverse">
+            <tr>
+              <th data-column-id="id">ID</th>
+              <th data-column-id="nome">Nome</th>
+              <th data-column-id="email">E-mail</th>
+              <th data-column-id="email">Ações</th>
+              </tr>
+            </thead>
+        <tbody>
+          
+            <% result.forEach(user => { %>
+              <tr>
+                <td><%= user.id %> </td>
+                <td><%= user.nome %> </td>
+                <td><%= user.email %> </td>
+                <td><button class="btn btn-primary"><a href="/login" style="color: white; text-decoration: none;">Deletar</a></button>
+                  
+                  <button class="btn btn-primary"><a href="/register" style="color: white; text-decoration: none;">Editar</a></button></td>
+              </tr>
+            <% }) %>
+        </tbody>
+    </table>
+ </div>
+  <script>
+
+  
+</script>
+
+</body>
+</html>

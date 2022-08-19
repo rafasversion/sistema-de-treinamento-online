@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0-beta1/dist/css/bootstrap.min.css" rel="stylesheet"
+    integrity="sha384-0evHe/X+R7YkIZDRvuzKMRqM+OrBnVFBL6DOitfPri4tjfHxaWutUpFmBp4vmVor" crossorigin="anonymous">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+  <link rel="stylesheet" href="css/login.css">
+  <title>Login</title>
+</head>
+
+<body>
+<style>
+
+body {
+    background: url("img/bannerlogin.jpeg");
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+    width: 100%;
+    height: 700px;
+    
+  }
+</style>
+  <div class="mask">
+  <header class="cabecalho">
+    <img class="logo1" src="img/logo_2.png">
+    <nav class="menu">
+
+      <a class="nav-link" href="/">Home</a>
+      <a class="nav-link" href="/">Histórico</a>
+
+      <% if(status == "loggedin") {%> 
+      
+      <a class="nav-link" href="/profile"><span class="fa fa-user"></span> Profile</a>
+
+      <% } else { %> 
+      <a class="nav-link" href="/login"><span class="fa fa-sign-in"></span> Login</a>
+      <% } %> 
+    </nav>
+  </header>
+
+  <div class="container">
+   
+    <div class="card">
+     
+      <div class="card-body">
+
+        <form class="col md-3" onsubmit="return false;" id="form">
+
+
+          <h5 class="card-title"><strong>Login</strong></h5>
+          <p class="card-text">Insira os seus dados para acessar sua conta</p>
+           <div class="mb-3">
+
+            <label for="email" class="control-label">E-mail:</label>
+            <input type="email" class="form-control" id="email" autocomplete="off" placeholder="exemplo@exemplo.com" required>
+
+          </div>
+          <div class="mb-3">
+            <label for="password" class="control-label">Senha:</label>
+            <input type="password" class="form-control" id="password" autocomplete="off" placeholder="******" required>
+          </div>
+          <div class="mb-3 form-check">
+            <input type="checkbox" class="form-check-input" id="exampleCheck1">
+            <label class="form-check-label" for="exampleCheck1">Salvar login</label>
+          </div>
+          <div class="alert alert-danger" role="alert" id="error" style="display: none;"></div>
+          <div class="alert alert-success" role="alert" id="success" style="display: none;"></div>
+          <div class="d-grid gap-2">
+
+            <button type="submit" class="btn btn-primary" id="b" style="--bs-btn-border-radius: .6rem;">Logar</button>
+          </div>
+          <div class="or">
+            <p>- Ou faça login usando outra conta -</p>
+          </div>
+          
+          <div class="contas">
+          <button class="btn btn-primary" style="--bs-btn-border-radius: 100%"><span class="fa fa-google"></span></button>
+          <button class="btn btn-primary" style="--bs-btn-border-radius: 100%"><span class="fa fa-facebook-official"></span></button>
+          </div>
+      
+        
+        </form>
+      </div>
+      
+    </div>
+
+</div>
+  </div>
+
+  <script src="js/login.js"></script>
+</body>
+
+</html>
