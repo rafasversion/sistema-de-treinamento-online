@@ -1,0 +1,298 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE-edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Site da Personal Trainer Daniela Teixeira">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0-beta1/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-0evHe/X+R7YkIZDRvuzKMRqM+OrBnVFBL6DOitfPri4tjfHxaWutUpFmBp4vmVor" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <link rel="stylesheet" href="css/homepage.css">
+    <title>Home</title>
+</head>
+
+<style>
+    .a {
+    background: url("img/banner.png");
+    background-size: cover;
+    width: 1520px;
+    height: 1060px;
+
+}
+
+.menu ul {
+  list-style: none;
+  position: relative;
+}
+
+.menu a {
+  display: block;
+  text-decoration: none;
+}
+.menu ul li {
+  width: 100px;
+  float: left;
+}
+
+.menu ul ul {
+  position: absolute;
+  visibility: hidden;
+}
+
+.menu a:hover {
+  color: #555;
+}
+label[for="bt-menu"] {
+  padding: 5px;
+  background-color: #222;
+  color: #fff;
+  text-align: center;
+  font-size: 30px;
+  cursor: pointer;
+  height: 50px;
+ }
+ 
+label[for="bt-menu"] {
+  display: none;
+ }
+@media only screen and (max-width: 768px) {
+    body {
+        width: 100%;
+        height: 1100px;
+      }
+
+      .a {
+        background-position: center;
+        width: 100%;
+        height: 800px;
+      
+    }
+
+ label[for="bt-menu"] {
+  display: block;
+ }
+
+ #bt_menu:checked ~ .menu {
+  margin-left: 0;
+ }
+ .menu {
+  margin-top: 5px;
+  margin-left: -100%;
+  transition: all .4s;
+ }
+
+ .menu ul li {
+  width: 100%;
+  float: none;
+ }
+
+.menu ul ul {
+  position: static;
+  overflow: hidden;
+  max-width: 0;
+  transition: all 4s;
+}
+
+.menu ul li:hover {
+  height: auto;
+  max-height: 200px;
+}
+}
+
+.dropdown {
+    position: relative;
+    display: inline-block;
+    color: white;
+    font-family: 'Sarala', sans-serif;
+    font-size: 18px;
+    font-style: none;
+  }
+  
+  
+  .dropdown #bb{
+    display: none;
+  }
+  
+  .dropdown-content {
+    display: none;
+    position: absolute;
+    background-color: #f9f9f9;
+    min-width: 160px;
+    box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+    border-radius: 10px;
+    padding: 12px 16px;
+    z-index: 1;
+    color:#060E1A;
+  }
+  
+  .dropdown:hover .dropdown-content {
+    display: block;
+  }
+  
+  
+  .dropdown:hover #aa {
+    display: none;
+  }
+  .dropdown:hover #bb {
+    display:inline;
+  }
+  
+  .border {
+    border-top: #060E1A 2px solid;
+  }
+  
+  #dc1 {
+    color: black;
+  }
+  
+  #dc2 {
+    color: black;
+    border-bottom: 2px solid grey;
+  }
+  
+  #dc1:hover {
+  color: blue;
+  }
+  
+  #dc2:hover {
+  color: blue;
+  }
+  
+  
+  #sair {
+    margin-top: 20px;
+    color: red;
+    text-decoration: none
+  }
+
+  
+.logout {
+    color: red; text-decoration: none;
+  }
+  
+  .logout:hover {
+    color: white; text-decoration: none;
+  }
+
+
+
+</style>
+
+<body>
+
+   <div class="a">
+    <div class="b"> 
+    
+    <header class="cabecalho">
+     
+        <img class="logo" src="img/logo_2.png">
+       
+        <nav class="menu">
+
+          <ul>
+            <li><a class="nav-link" href="/">Home</a></li>
+            <li><a class="nav-link" href="/">Histórico</a></li>
+          </ul>
+        <% if(status == "loggedin") {%> 
+
+          <div class="dropdown">
+           <span><span class="fa fa-user"></span> Perfil <span class="fa fa-caret-down" id="aa"></span><span class="fa fa-caret-up" id="bb"></span></span>
+           <div class="dropdown-content">
+            <a class="nav-link" id="dc1" href="/profile">Ver perfil</a>
+            <a class="nav-link" id="dc2" href="/">Configurações</a>
+            
+            <div class="d-grid gap-2">
+              <button class="btn btn-outline-danger" id="sair"><a href="/logout" class="logout"><span class="fa fa-sign-out"></span>Sair</a></button>
+            </div>
+           </div>
+          </div>
+          <% } else { %> 
+            <a class="nav-link" href="/login"><span class="fa fa-sign-in"></span> Login</a>
+          <% } %> 
+        </nav>
+    </header>
+
+    <main class="conteudo">
+        <section class="conteudo-principal">
+            
+            <div class="conteudo-escrito">
+                
+                <h1 class="titulo-principal">Dani Teixeira</h1>
+                <h3 class="subtitulo-principal">PERSONAL TRAINER</h3>
+                <h3 class="subtitulo-principal">Tenha a experiência de ter um atendimento personalizado e atenção exclusiva para seus treinos.</h3>
+            
+                
+        
+                <div class="botoes">
+                  <% if(status != "loggedin") {%> 
+      
+                    <button class="btnn"><a href="/register" style="color: white; text-decoration: none;">Comece agora</a></button>
+                    <button class="botao-secundario"><a href="/login" style="color: white; text-decoration: none;">Fazer login</a></button>
+              
+                    <% } else { %> 
+                      <button class="btnn"><a href="/profile" style="color: white; text-decoration: none;">Ver Perfil</a></button>
+                    <% } %> 
+                
+                </div>
+                
+            </div>
+            <p></p>
+        </section>
+  </div>
+  </div> 
+  
+        <section class="conteudo-secundario">
+
+            <div id="carouselExampleCaptions" class="carousel slide" data-bs-ride="false">
+                <div class="carousel-indicators">
+                  <button type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide-to="0" class="active" aria-current="true" aria-label="Slide 1"></button>
+                  <button type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide-to="1" aria-label="Slide 2"></button>
+                  <button type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide-to="2" aria-label="Slide 3"></button>
+                </div>
+                <div class="carousel-inner">
+                  <div class="carousel-item active">
+                    <img src="img/logo2.png" class="d-block w-100" alt="...">
+                    <div class="carousel-caption d-none d-md-block">
+                      <h5>First slide label</h5>
+                      <p>Some representative placeholder content for the first slide.</p>
+                    </div>
+                  </div>
+                  <div class="carousel-item">
+                    <img src="img/logo2.png" class="d-block w-100" alt="...">
+                    <div class="carousel-caption d-none d-md-block">
+                      <h5>Second slide label</h5>
+                      <p>Some representative placeholder content for the second slide.</p>
+                    </div>
+                  </div>
+                  <div class="carousel-item">
+                    <img src="img/logo2.png" class="d-block w-100" alt="...">
+                    <div class="carousel-caption d-none d-md-block">
+                      <h5>Third slide label</h5>
+                      <p>Some representative placeholder content for the third slide.</p>
+                    </div>
+                  </div>
+                </div>
+                <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide="prev">
+                  <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+                  <span class="visually-hidden">Previous</span>
+                </button>
+                <button class="carousel-control-next" type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide="next">
+                  <span class="carousel-control-next-icon" aria-hidden="true"></span>
+                  <span class="visually-hidden">Next</span>
+                </button>
+              </div>
+                <h3 class="titulo-secundario">aaaa</h3>
+                <p class="texto-secundario">aaa</p>
+        </section>
+    </main>
+    
+    <footer class="rodape">
+        <p class="img-rodape">Aaaaaa</p>
+    </footer>
+
+
+</body>
+
+</html>

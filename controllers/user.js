@@ -15,7 +15,6 @@ const viewuser = async (req, res) => {
     }
     console.log('Dados dos usuários cadastrados no banco: \n', result[0]);
 
-
   })
 }
 

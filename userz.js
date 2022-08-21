@@ -3,7 +3,7 @@ const jwt = require("jsonwebtoken");
 
 const userz = async (req, res) => {
  
-  db.query("SELECT * FROM users", (err, result) => {
+  db.query("SELECT * FROM aluno", (err, result) => {
     req.user = result[0];
     if (!err) {
        

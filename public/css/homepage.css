@@ -10,7 +10,7 @@
 
 
 body {
-    font-size: 100%;
+   font-size: 100%;
   
    background: white;
 }
@@ -95,7 +95,7 @@ body {
     color: white;
 }
 
-.btn{
+.btnn{
     text-decoration: none;
     background-color: #226EE0;
     width: 180px;
@@ -109,7 +109,7 @@ body {
     color: black;
 }
 
-.botoes .btn:hover {
+.botoes .btnn:hover {
     background-color: #00427c;
 }
 
@@ -208,17 +208,17 @@ body {
 
 
 @media only screen and (max-width: 768px) {
-.a {
-    width: 500px;
-    height: 760px;
-    background-position: center;
-}
-
-
+  
+      .a {
+        
+        width: 10px;
+        height: 1060px;
+    
+    }
 .conteudo-principal {
     margin-left: 10%;
     margin-right: 10%;
-    
+    width: 100px;
     height: 650px;
 }
 

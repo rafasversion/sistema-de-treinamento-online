@@ -4,7 +4,7 @@ const router = express.Router();
 const logout = require("../controllers/logout")
 const viewall = require("../controllers/users")
 const viewuser = require("../controllers/user")
-const userz = require("../controllers/userz")
+
 
 router.get("/", loggedin, (req, res) => {
     if (req.user){
@@ -37,18 +37,20 @@ router.get("/profile", loggedin, (req, res) => {
 router.get("/logout", logout)
 
 
-router.get("/viewusers", viewall, (req, res) => {
-    res.render("pages/viewusers", {result})
+router.get("/dashboard", viewall, (req, res) => {
+    res.render("pages/dashboard", {result})
 });
 
 router.get("/viewuser/:id", viewuser, (req, res) =>{
   //  res.render("viewuser", {result: result[0]})
 });
 
-
-router.get("/dashboard", userz ,(req, res) => {
-  
-});
-
+router.get("/user", loggedin, (req, res) => {
+    if (req.user){
+        res.render("pages/user", {status: "loggedin", user:req.user}); 
+    } else {
+        res.render("pages/user", {status: "no", user:"nothing"});
+    }
+})
 
 module.exports = router;

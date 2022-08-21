@@ -84,6 +84,7 @@
        justify-content: space-around;
        width: 30%;
        
+       
     }
 
     
@@ -123,5 +124,6 @@
 
   .card {
     width: 80%;
+    border-radius:30px;
   }
   }
