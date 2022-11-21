@@ -13,85 +13,84 @@
 </head>
 
 <body>
-<style>
 
-body {
-    background: url("img/bannerlogin.jpeg");
-    background-position: center;
-    background-repeat: no-repeat;
-    background-size: cover;
-    width: 100%;
-    height: 700px;
+  
+<div class="background">
+  <div class="mask"> 
+  
+<header>
+  <nav>
+    <img class="logo" src="img/logo_2.png"/>
+    <div class="mobile-menu">
+      <div class="line1"></div>
+      <div class="line2"></div>
+      <div class="line3"></div>
+    </div>
+    <ul class="nav-list">
+      <li><a href="/">Home</a></li>
+      <li><a href="#">Sobre</a></li>
+  
+        <li><a href="/login"><span class="fa fa-sign-in"></span> Login</a></li>
     
-  }
-</style>
-  <div class="mask">
-  <header class="cabecalho">
-    <img class="logo1" src="img/logo_2.png">
-    <nav class="menu">
+    </ul>
+  </nav>
+</header>
 
-      <a class="nav-link" href="/">Home</a>
-      <a class="nav-link" href="/">Histórico</a>
-
-      <% if(status == "loggedin") {%> 
-      
-      <a class="nav-link" href="/profile"><span class="fa fa-user"></span> Profile</a>
-
-      <% } else { %> 
-      <a class="nav-link" href="/login"><span class="fa fa-sign-in"></span> Login</a>
-      <% } %> 
-    </nav>
-  </header>
-
+<div id="login_form">
   <div class="container">
    
     <div class="card">
      
       <div class="card-body">
 
-        <form class="col md-3" onsubmit="return false;" id="form">
+        <form onsubmit="return false;" id="form">
 
 
           <h5 class="card-title"><strong>Login</strong></h5>
           <p class="card-text">Insira os seus dados para acessar sua conta</p>
            <div class="mb-3">
-
-            <label for="email" class="control-label">E-mail:</label>
-            <input type="email" class="form-control" id="email" autocomplete="off" placeholder="exemplo@exemplo.com" required>
+            <label for="email_aluno" class="control-label">E-mail:</label>
+            <input type="email" class="form-control" id="email_aluno" autocomplete="off" placeholder="exemplo@exemplo.com" required>
 
           </div>
           <div class="mb-3">
-            <label for="password" class="control-label">Senha:</label>
-            <input type="password" class="form-control" id="password" autocomplete="off" placeholder="******" required>
+            <label for="senha_aluno" class="control-label">Senha:</label>
+            <input type="password" class="form-control" id="senha_aluno" autocomplete="off" placeholder="******" required>
           </div>
-          <div class="mb-3 form-check">
-            <input type="checkbox" class="form-check-input" id="exampleCheck1">
-            <label class="form-check-label" for="exampleCheck1">Salvar login</label>
-          </div>
+
           <div class="alert alert-danger" role="alert" id="error" style="display: none;"></div>
           <div class="alert alert-success" role="alert" id="success" style="display: none;"></div>
-          <div class="d-grid gap-2">
-
-            <button type="submit" href="login" class="btn btn-primary" id="b" style="--bs-btn-border-radius: .6rem;">Logar</button>
-          </div>
-          <div class="or">
-            <p>- Ou faça login usando outra conta -</p>
-          </div>
-          
-          <div class="contas">
-          <button class="btn btn-primary" style="--bs-btn-border-radius: 100%"><span class="fa fa-google"></span></button>
-          <button class="btn btn-primary" style="--bs-btn-border-radius: 100%"><span class="fa fa-facebook-official"></span></button>
-          </div>
-      
         
+          <div class="d-grid gap-2">
+            <button type="submit" class="btn btn-primary" id="b" style="--bs-btn-border-radius: .6rem;">Logar</button>
+          </div>
         </form>
       </div>
       
     </div>
 
-</div>
   </div>
+</div>
 
+
+
+<div id="success_msg" style="display: none;">
+  <div class="container">
+    <div class="card-success">    
+      <div class="card-body-success">    
+   
+        
+          <img src="img/loading.gif">
+          <h5 class="card-title-success"><strong>Você logou com sucesso</strong></h5>
+          <p class="card-text-success">Espere ser direcionado</p>
+          <a href="/login"><button class="btn btn-primary" id="btn" style="--bs-btn-border-radius: .6rem;">Faça seu login para acessar</button></a>
+      </div>
+    </div>
+  </div>
+</div>
+
+
+</div>
   <script src="js/login.js"></script>
 </body>
 

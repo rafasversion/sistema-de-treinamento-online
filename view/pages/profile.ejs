@@ -205,8 +205,7 @@ color: blue;
 }
   </style>
 
-<% let data = user.data_nasc; 
-let dataform = ((data.getDate() )) + "/" + ((data.getMonth() + 1)) + "/" + data.getFullYear();%>
+
 
   <div class="mask">
     <header class="cabecalho">
@@ -250,9 +249,9 @@ let dataform = ((data.getDate() )) + "/" + ((data.getMonth() + 1)) + "/" + data.
                 width="150px"
                 src="img/user.png"><span
                 class="font-weight-bold">
-                <strong><%= user.nome %></strong>
+                <strong><%= user.nome_aluno %></strong>
               </span><span class="text">
-                <%= user.email%>
+                <%= user.email_aluno%>
               </span>
               <div class="d-grid gap-2">
               <button type="submit" class="btn btn-primary" style="--bs-btn-border-radius: .3rem; width:250px;"><span class="fa fa-edit"></span> Editar</button> 
@@ -264,9 +263,10 @@ let dataform = ((data.getDate() )) + "/" + ((data.getMonth() + 1)) + "/" + data.
             <div class="col-md-8">
               <div class="card-body">
                 
-                
+                <% let data = user.data_nasc_aluno
+                let dataform = ((data.getDate() )) + "/" + ((data.getMonth() + 1)) + "/" + data.getFullYear(); %>
   
-                <p class="card-text mt-4"><strong>Nome completo: </strong><%= user.nome %> <%= user.sobrenome %></p>
+                <p class="card-text mt-4"><strong>Nome completo: </strong><%= user.nome_aluno %> <%= user.sobrenome_aluno %></p>
                 <p class="card-text"><strong>Data de Nascimento: </strong><%= dataform %></p>
                 
               </div>

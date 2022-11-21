@@ -1,0 +1,166 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta chbarset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+    <title>Dashboard</title>
+    <link rel="stylesheet"
+        href="https://maxst.icons8.com/vue-static/landings/line-awesome/line-awesome/1.3.0/css/line-awesome.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+
+    <link href="/css/ferramentas.css" rel="stylesheet" type="text/css" />
+</head>
+
+<body>
+
+    <input type="checkbox" id="nav-toggle">
+    <div class="menu-lateral">
+        <div class="menu-lateral-itens">
+            <img class="logo" src="/img/logo_2.png"></h2>
+        </div>
+
+        <div class="menu-lateral-links">
+            <ul>
+                <li>
+                    <a href="/dashboard" class="outro"><span class="las la-users"></span>
+                        <span> Gerenciar Alunos</span></a>
+                </li>
+                <li>
+                    <a href="/" class="ativo"><span class="las la-tools"></span>
+                        <span> Ferramentas</span></a>
+                </li>
+                <li>
+                    <a href="/" class="outro"><span class="las la-bell"></span>
+                        <span> Notificações</span></a>
+                </li>
+            </ul>
+        </div>
+    </div>
+
+    <div class="conteudo-principal">
+        <header>
+            <h2>
+                <label for="nav-toggle">
+                    <span class="las la-bars"></span>
+                </label>
+                Dashboard
+            </h2>
+
+            <div class="barra-pesquisa">
+                <span class="las la-search"></span>
+                <input type="search" placeholder="Procure aqui">
+            </div>
+
+            <div class="usuario-acesso">
+                <img src="/img/user.png" width="30px" height="30px" alt="">
+                <div>
+                    <h4>Dani<br>Teixeira</h4>
+                    <small>Dona</small>
+                </div>
+            </div>
+        </header>
+
+        <div class="conteudos">
+            <div class="titulo">
+                <h3>CONFIGURE AQUI SUAS POSTAGENS</h3>
+            </div>
+
+            <div class="posts">
+                <div class="header-post">
+                    <h3 class="post-title"><span class="las la-file-alt"></span>Postagens</h3>
+                </div>
+
+                <div class="conteudo-post">
+
+                    <div class="box-post">
+
+
+                        <div class="box-post-conteudo">
+
+                            <form onsubmit="return false;" id="form">
+                                <fieldset class="group1">
+                                <div class="campo">
+                                    <label for="tipo_post">Tipos de postagens:</label>
+                                    <select id="tipo_post" required>
+                                        <option selected disabled value="">Selecione</option>
+                                        <option>Avisos</option>
+                                        <option>Dicas</option>
+                                        <option>Lives</option>
+                                    </select>
+                                </div>
+                                
+                                    <div class="campo">
+                                        <label for="nome_post">Título:</label>
+                                        <input type="text" name="titulo_post" id="titulo_post" required>
+                                    </div>
+                                </fieldset>
+
+                                <fieldset class="group2">
+                                    <div class="campo">
+                                        <label>Descrição:</label>
+                                        <textarea row="5" style="width: 12em" id="descricao_post" required></textarea>
+                                      </div>
+
+                                    <div class="campo">
+                                        <label for="link_post">Link:</label>
+                                        <input type="text" name="link_post" id="link_post" required>
+                                    </div>
+                              </fieldset>
+
+                              <div class="mensagem-erro" id="error" style="display: none;"></div>
+                              <div class="mensagem-sucesso" id="success" style="display: none;"></div>
+                    
+                              <button type="submit" class="enviar">Enviar</button>
+                        </form>
+                    </div>
+
+                </div>
+
+            </div>
+
+            <div class="posts-config">
+                <div class="header-post-config">
+                    <h3 class="post-title-config"><span class="fa fa-gear"></span> Configurações</h3>
+                </div>
+
+                
+                <div class="testes">
+                <table class="post-table">
+                    <thead>
+                    <tr class="cabecalho-table">
+                        <th>Titulo</th>
+                        <th>Descrição</th>
+                        <th>Tipo</th>
+                        <th class="acoes">Ação</th>
+                    </tr>
+                    </thead>
+
+                    <tbody>
+
+                        <% result.forEach(post => { %>
+                    <tr>
+                        
+                        <td><%= post.titulo_post%></td>
+                        <td><%= post.descricao_post%></td> 
+                        <td><%= post.tipo_post%></td>
+                        <td class="action">
+                            <a href="/deletarpost/<%= post.id_post%>"><button class="deletar-post">Excluir</button></a>
+                            <button class="editar-post">Editar</button>
+                        </td>
+                        
+                    </tr>
+                    <% }) %> 
+                    </tbody>
+                </table>
+               
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script src="/js/postagens.js"></script>
+
+</body>
+
+</html>

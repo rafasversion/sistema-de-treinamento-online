@@ -3,8 +3,11 @@ const db = require("./routes/config_db.js");
 const app = express();
 const cookie = require("cookie-parser");
 
+const stripePublicKey = process.env.STRIPE_PUBLIC_KEY
+const stripeSecretKey = process.env.STRIPE_SECRET_KEY
 
-const PORT = process.env.PORT || 5050;
+console.log(stripePublicKey, stripeSecretKey)
+const PORT = process.env.PORT || 4000;
 app.use("/js", express.static(__dirname + "/public/js"))
 app.use("/css", express.static(__dirname + "/public/css"))
 app.use("/img", express.static(__dirname + "/public/imgs"))

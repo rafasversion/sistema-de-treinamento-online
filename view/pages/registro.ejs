@@ -1,0 +1,131 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0-beta1/dist/css/bootstrap.min.css" rel="stylesheet"
+    integrity="sha384-0evHe/X+R7YkIZDRvuzKMRqM+OrBnVFBL6DOitfPri4tjfHxaWutUpFmBp4vmVor" crossorigin="anonymous">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+  <link rel="stylesheet" href="css/registro.css">
+  <title>Registro</title>
+</head>
+
+<body>
+
+  <div class="mask">
+  <header class="cabecalho">
+    <img class="logo1" src="img/logo_2.png">
+    <nav class="menu">
+
+      <a class="nav-link">Home</a>
+      <a class="nav-link">Histórico</a>
+      <a class="nav-link" href="/login"><span class="fa fa-sign-in"></span> Login</a>
+    </nav>
+  </header>
+
+
+  
+
+  <div id="registro"> 
+
+  <div class="container">
+   
+    <div class="card">    
+      <div class="card-body">    
+        <form class="row g-3" onsubmit="return false;" id="form">
+   
+          <h5 class="card-title"><strong>Registro</strong></h5>
+          <p class="card-text">Insira os seus dados para criar sua conta</p>
+
+          <div class="col-md-6" style="display: flex; flex-direction: arrow; gap: .8rem;  margin-top: 1em;">
+            <img src="/img/user.png" style="border-radius: 50%; border: 1px solid blue; width: 4rem;">
+            <input class="form-control form-control-sm" id="imagem_aluno" type="file" style="width:200px; height: 20px; margin-top: 2em;">
+          </div>
+          <div class="col-md-6">
+            <label for="nome_aluno" class="control-label">Nome:</label>
+            <input type="text" class="form-control" id="nome_aluno" placeholder="Insira seu primeiro nome" autocomplete="off" required>
+          </div>
+
+          <div class="col-md-6">
+            <label for="sobrenome_aluno" class="control-label">Sobrenome:</label>
+            <input type="text" class="form-control" id="sobrenome_aluno" placeholder="Insira seu sobrenome">
+          </div>
+
+          <div class="col-md-6">
+            <label for="sexo_aluno" class="control-label" style="display: flex; flex-direction: column;">Sexo:</label>
+            <select class="custom-select" id="sexo_aluno" style="width: 100%; height: 60%; border: rgb(203, 202, 202) 1px solid; border-radius: 5px;">
+              <option selected disabled value="" style="padding-left: .1rem; color:grey;">Escolha...</option>
+              <option>Feminino</option>
+              <option>Masculino</option>
+            </select>
+          </div>
+        
+
+          <div class="col-md-6">
+            <label for="data_nasc_aluno" class="control-label">Data de nascimento:</label>
+            <input type="date" class="form-control" id="data_nasc_aluno">
+          </div>
+
+           <div class="col-md-6">
+            <label for="telefone_aluno" class="control-label">Telefone:</label>
+            <input type="number" class="form-control" id="telefone_aluno" placeholder="Ex: (48) 99130-8194">
+          </div>
+
+           <div class="col-md-6">
+            <label for="cpf_aluno" class="control-label">CPF:</label>
+            <input type="number" class="form-control" id="cpf_aluno" placeholder="Ex: 147.159.289-51">
+          </div>
+
+
+          <div class="col-md-6">
+            <label for="email_aluno" class="control-label">E-mail:</label>
+            <input type="email" class="form-control" id="email_aluno" placeholder="Ex: exemplo@exemplo.com" autocomplete="off" required>
+          </div>
+
+          <div class="col-md-6">
+            <label for="senha_aluno" class="control-label">Senha:</label>
+            <input type="password" class="form-control" id="senha_aluno" placeholder="******" autocomplete="off" required>
+          </div>
+
+          <div class="col-md-6">
+            <label for="senha_aluno_confirmar" class="control-label">Confirmar senha:</label>
+            <input type="password" class="form-control" id="senha_aluno_confirmar" placeholder="Insira novamente">
+          </div>
+
+          <div class="alert alert-danger" role="alert" id="error" style="display: none;"></div>
+
+          <div class="d-grid gap-2">
+            <button type="submit" class="btn btn-primary" id="b" style="--bs-btn-border-radius: .6rem;">Cadastar</button>
+          </div>
+
+        </form>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div id="success" style="display: none;">
+  <div class="container">
+   
+    <div class="card-success">    
+      <div class="card-body-success">    
+   
+          <h5 class="card-title-success"><strong>Registrado</strong></h5>
+          <img src="img/login_icon.png">
+          <p class="card-text-success">Você foi registrado com sucesso!</p>
+          <a href="/login"><button class="btn btn-primary" id="btn" style="--bs-btn-border-radius: .6rem;">Faça seu login para acessar</button></a>
+      </div>
+    </div>
+  </div>
+
+</div>
+
+
+</div>
+
+  <script src="js/register.js"></script>
+</body>
+
+</html>

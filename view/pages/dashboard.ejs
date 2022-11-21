@@ -1,102 +1,241 @@
 <!DOCTYPE html>
-<html lang="pt-br">
+<html>
 
 <head>
-  <meta charset="UTF-8" >
-  <meta http-equiv="X-UA-Compatible" content="IE-edge">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0-beta1/dist/css/bootstrap.min.css" rel="stylesheet"
-    integrity="sha384-0evHe/X+R7YkIZDRvuzKMRqM+OrBnVFBL6DOitfPri4tjfHxaWutUpFmBp4vmVor" crossorigin="anonymous">
-  
-  <title>Painel de Controle</title>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+  <title>Dashboard</title>
+  <link rel="stylesheet" href="https://maxst.icons8.com/vue-static/landings/line-awesome/line-awesome/1.3.0/css/line-awesome.min.css">
+  <link href="/css/dashboard.css" rel="stylesheet" type="text/css" />
 </head>
 
-<style>
- @import url('https://fonts.googleapis.com/css2?family=Maven+Pro:wght@500&display=swap');
-    .table {
-        width: 20%;
-        margin: 0%;
-        padding: 0%;
-        font-family: 'Maven Pro', sans-serif;
-        text-align: center;
-        color: antiquewhite;
+<body>
 
-    }
-
-
-    .table td:hover {
-        background-color: #005bde;
-    }
-
-    .title {
-        text-align: center;
-        margin: 0%;
-        height: 50px;
-        color: white;
-        font-family: 'Maven Pro', sans-serif;
-        background-color: #005bde;
-    }
-
-    .s {
-        margin:10%;
-    }
-
-    
-.cabecalho {
-    display: flex;
-    flex-direction: column;
-    align-items: left;
-    padding: 0%;
-    background-color: #005bde;
-}
-
-
-.menu {
-    display: flex;
-    flex-direction: column;
-    width: 20px;
-}
-
-.navl {
-    color: white;
-    font-family: 'Sarala', sans-serif;
-    font-size: 18px;
-    height: 45px;
-    align-items: left;
-}
-
-.list-group-item:hover {
-    background-color: #005bde;
-    color: white;
-}
-
-.list-group-item {
-    background-color: #4f8ee7;
-    color: white;
-    font-family: 'Sarala', sans-serif;
-}
-</style>
-
-<div class="title">
-    <h1>Painel de Controle</h1>
-</div>
-<div class="row">
-    <div class="col-md-3">
-      <div id="list-example" class="list-group">
-        <% result.forEach(user => { %>
-            <a class="list-group-item" href="#list-item-1"><%= user.nome || "sem nome"%> <%= user.sobrenome || "sem nome"%></a>
-            <% }) %> 
-       
-        
-      </div>
-    </div>
-    <div class="col-8">
-      <div data-bs-spy="scroll" data-bs-target="#list-example" data-bs-smooth-scroll="true" class="scrollspy-example" tabindex="0">
-        <h4 id="list-item-1"></h4>
-      </div>
-    </div>
+<input type="checkbox" id="nav-toggle">
+<div class="sidebar">
+  <div class="sidebar-brand">
+    <img class="logo" src="/img/logo_2.png"></h2>
   </div>
 
+  <div class="sidebar-menu">
+    <ul>
+      <li>
+        <a href="/dashboard" class="active"><span class="las la-users"></span>
+        <span> Gerenciar Alunos</span></a>
+    </li>
+       <li>
+        <a href="/dashboard/ferramentas" class="order"><span class="las la-tools"></span>
+        <span> Ferramentas</span></a>
+    </li>
+       <li>
+        <a href="/" class="order"><span class="las la-bell"></span>
+        <span> Notificações</span></a>
+    </li>
+    </ul>
+  </div>
+</div>
+
+  <div class="main-content">
+    <header>
+     <h2>
+        <label for="nav-toggle">
+          <span class="las la-bars"></span>
+        </label>
+        Dashboard
+     </h2>
+
+      <div class="search-wrapper">
+        <span class="las la-search"></span>
+        <input type="search" placeholder="Procure aqui">
+      </div>
+
+      <div class="user-wrapper">
+        <img src="img/user.png" width="30px" height="30px" alt="">
+        <div>
+          <h4>Dani<br>Teixeira</h4>
+          <small>Dona</small>
+        </div>
+      </div>
+      
+    </header>
+
+    <main>
+      <div class="cards">
+        
+        <div class="card-single" id="card1">
+          <div>
+             <span class="card-title">Alunos em treino</span>
+          </div>
+          <div>
+            
+            <h1 class="card-dado"><%= status_c%> </h1>
+          </div>
+        </div>
+
+        <div class="card-single" id="card2">
+          <div>
+
+           
+             <span class="card-title">Alunos cadastrados</span>
+             
+          </div>
+          <div>
+            <% rows.forEach(user => { %>
+              <h1 class="card-dado"><%= user.id_count %></h1>
+            </div>
+          </div>
+  <% }) %> 
+
+        <div class="card-single" id="card3">
+          <div>
+             
+             <span class="card-title">Treinos agendados</span>
+          </div>
+          <div>
+            
+            <h1 class="card-dado"><%= treino.id_treinocount%></h1>
+          </div>
+        </div>
+
+           <div class="card-single" id="card4">
+          <div>
+             
+             <span class="card-title">Postagens criadas</span>
+          </div>
+          <div>
+            <% results.forEach(post => { %>
+            <h1 class="card-dado"><%= post.id_postcount %> </h1>
+            <% }) %> 
+          </div>
+        </div>
+      </div>
+
+      <div class="recent-grid">
+
+        <div class="treinos">
+          <div class="card">
+            <div class="card-header">
+              <h3>Treinos</h3>
+              <button>Adicionar treino <span class="las la-plus">
+               </span></button>
+            </div>
+
+            <div class="card-body">
+              <table width="100%">
+                <thead>
+                  <tr>
+                    <td>Nome</td>
+                    <td>Descrição</td>
+                    <td>Aluno</td>
+                    <td>Status</td>
+                    
+                  </tr>
+                </thead>
+                <tbody>
+                  <% resultes.forEach(treino => { %>
+                  <tr>
+                    <td><%= treino.nome_treino%></td>
+                    <td><%= treino.descricao_treino%></td>
+                    <td><%= treino.id_aluno%></td>
+                    <td>
+                      <span class="status <%= treino.status_treino%> "></span>
+                      <%= treino.status_treino%>
+                    </td>
+                  </tr>
+                   <% }) %> 
+                 
+                </tbody>
+              </table>
+            </div>
+          </div>
+        </div>
+        
+        <% rows.forEach(users => { %>
+
+          <% let count = users.id_count %>
+          <% if(count == 0) {%> 
+
+            <div class="alunos">
+              <div class="card">
+                <div class="card-header">
+                  <h3>Alunos</h3>
+                </div>
+    
+                <div class="card-body">
+                  <div class="aluno">
+                    <div>
+                    <h4>Nenhum aluno cadastrado ainda</h4>
+                    <small><%= user.email_aluno %></small>
+                  </div>
+                </div>
+              </div>
+            <% } else { %> 
+        <div class="alunos">
+          <div class="card">
+            <div class="card-header">
+              <h3>Alunos</h3>
+            </div>
+
+
+            <div class="card-body">
+              <% result.forEach(user => { %>
+
+                 
+
+              <div class="aluno">
+                <div class="info">
+                <img src="img/user.png" width="40px" height="40px;" alt="">
+                <div>
+
+                  
+                 
+                <h4><%= user.nome_aluno%> <%= user.sobrenome_aluno %></h4>
+                <small><%= user.email_aluno %></small>
+              </div>
+            </div>
+               
+            <div class="view">
+              <a href="/dashboard/aluno/<%= user.id_aluno %>"><button class="veraluno">Ver<span class="las la-user-circle"></span></button></a>
+            </div>
+          </div>
+
+          <% }) %> 
+
+          <% } %> 
+          <% }) %> 
+                
+         </div>
+            
+        </div>
+      </div>
+    </div>
+
+      <div id="teste">
+        <p>teste</p>
+      </div>
+      <div id="botao">
+        <button>teste</button>
+      </div>
+
+      <div id="teste1" style="display: none;">
+        <p>teste1</p>
+      </div>
+      <div id="botao1" style="display: none;">
+        <button>teste1</button>
+      </div>
+
+      
+      <div id="teste2" style="display: none;">
+        <p>teste2</p>
+      </div>
+      <div id="botao2" style="display: none;">
+        <button>teste2</button>
+      </div>
+      
+    </main>
+  </div>
+  
+  
 </body>
 
 </html>
