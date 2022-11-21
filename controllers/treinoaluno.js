@@ -1,7 +1,7 @@
 const db = require("../routes/config_db");
 const jwt = require("jsonwebtoken");
 
-const listtreinos = async (req, res) => {
+const treinoaluno = async (req, res) => {
     
   const decoded = jwt.verify(req.cookies.userRegistered, process.env.JWT_SECRET);
 
@@ -14,15 +14,13 @@ const listtreinos = async (req, res) => {
     
     
       db.query(`SELECT * FROM anamnese WHERE id_aluno = ${id_aluno}`, (err, resultes) => {
-
-        db.query(`SELECT * FROM postagens WHERE tipo_post = 'Lives'`, (err, result_aviso) => {
   
       if (!err) {
       req.anamnese = resultes[0];
       req.user = result[0]
-      console.log(result_aviso)
-      return res.render("pages/homealuno", { results, user:req.user, anamnese:req.anamnese, result_aviso })
-
+      
+      res.render("pages/treino", {results, user:req.user, anamnese:req.anamnese})
+      
     
       } else {
         console.log(err);  
@@ -31,8 +29,7 @@ const listtreinos = async (req, res) => {
     })
   })
 })
-})
 
 }
  
-module.exports = listtreinos;
+module.exports = treinoaluno;

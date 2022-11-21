@@ -1,0 +1,369 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0-beta1/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-0evHe/X+R7YkIZDRvuzKMRqM+OrBnVFBL6DOitfPri4tjfHxaWutUpFmBp4vmVor" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <link rel="stylesheet"
+        href="https://maxst.icons8.com/vue-static/landings/line-awesome/line-awesome/1.3.0/css/line-awesome.min.css">
+    <link rel="stylesheet" href="/css/ana.css">
+    <title>Anamnese</title>
+</head>
+
+<body>
+
+
+    <header class="cabecalho">
+        <nav class="menu">
+
+            <a class="nav-link" href="/aluno/home"><span class="las la-arrow-left"></span></a>
+            <a>Envie sua anamnese</a>
+        </nav>
+    </header>
+
+
+
+    <div class="container">
+        <div class="colluns">
+
+            <!-- card etapa 1-->
+            <div class="card" id="etapa1">
+                <div class="card-body">
+
+
+
+                    <form class="row g-3" onsubmit="return false;" id="anamnese">
+
+                        <h5 class="card-title"><strong>Anamnese</strong></h5>
+                        <p class="card-text">Insira seus dados na anamnese para ser possível estabelecer seus treinos
+                        </p>
+
+                        <div class="col-md-6">
+                            <label for="naturalidade" class="control-label">Naturalidade:</label>
+                            <select class="custom-select" id="naturalidade"
+                                style="width: 100%; height: 60%; border: rgb(203, 202, 202) 1px solid; border-radius: 5px;">
+                                <option selected disabled value="" style="padding-left: .1rem; color:grey;">Escolha...
+                                </option>
+                                <option>Sombrio</option>
+                                <option>Araranguá</option>
+                            </select>
+                        </div>
+
+                        <div class="col-md-6">
+                            <label for="profissao" class="control-label">Profissão:</label>
+                            <input type="text" class="form-control" id="profissao" placeholder="">
+                        </div>
+
+                        <div class="col-md-3">
+                            <label for="peso" class="control-label">Peso:</label>
+                            <input type="text" class="form-control" id="peso" placeholder="">
+                        </div>
+
+                        <div class="col-md-3">
+                            <label for="altura" class="control-label">Altura:</label>
+                            <input type="text" class="form-control" id="altura" placeholder="">
+                        </div>
+
+                        <div class="col-md-6">
+                            <label for="tipo_sanguineo" class="control-label">Tipagem sanguínea:</label>
+                            <select class="custom-select" id="tipo_sanguineo"
+                                style="width: 100%; height: 60%; border: rgb(203, 202, 202) 1px solid; border-radius: 5px;">
+                                <option selected disabled value="" style="padding-left: .1rem; color:grey;">Escolha...
+                                </option>
+                                <option>A+</option>
+                                <option>A-</option>
+                                <option>B+</option>
+                                <option>B-</option>
+                                <option>AB+</option>
+                                <option>AB-</option>
+                                <option>O+</option>
+                                <option>O-</option>
+                            </select>
+                        </div>
+
+
+                        <div class="col-md-6">
+                            <label for="contato_emergencia" class="control-label">Contato de emergência:</label>
+                            <input type="number" class="form-control" id="contato_emergencia" placeholder="">
+                        </div>
+
+                        <div class="col-md-6">
+                            <label for="horas_sono" class="control-label">Horas de sono:</label>
+                            <input type="text" class="form-control" id="horas_sono" placeholder="">
+                        </div>
+
+                        <div class="col-md-12">
+                            <label for="historico_exercicio_frequencia" class="control-label">Com qual frequência você
+                                faz exercícios?</label>
+                            <textarea type="text" class="form-control" id="historico_exercicio_frequencia"
+                                placeholder=""></textarea>
+                        </div>
+
+                        <div class="col-md-12">
+                            <label for="historico_exercicio_tempo" class="control-label">Qual a duração dos seus
+                                exercícios?</label>
+                            <textarea type="text" class="form-control" id="historico_exercicio_tempo"
+                                placeholder=""></textarea>
+                        </div>
+
+
+                        <div class="alert alert-danger" role="alert" id="error" style="display: none;"></div>
+                        <div class="alert alert-success" role="alert" id="success" style="display: none;"></div>
+
+                        <div class="container d-flex justify-content-center align-items-center">
+
+                            <div class="progresses">
+
+
+                                <div class="steps" id="check">
+                                    <span class="font-weight-bold">1</span>
+                                </div>
+
+                                <span class="line"></span>
+
+                                <div class="steps">
+                                    <span class="font-weight-bold">2</span>
+                                </div>
+
+
+                                <span class="line"></span>
+
+                                <div class="steps">
+                                    <span class="font-weight-bold">3</span>
+                                </div>
+
+                            </div>
+
+                        </div>
+
+                        <div class="alert alert-danger" role="alert" id="error" style="display: none;"></div>
+                        <div class="alert alert-success" role="alert" id="success" style="display: none;"></div>
+
+                        <div class="d-grid gap-2">
+                            <button type="submit" class="btn btn-primary" id="b"
+                                style="--bs-btn-border-radius: .6rem;">Continuar</button>
+                        </div>
+
+                    </form>
+                </div>
+            </div>
+
+            <div class="card" id="etapa2" style="display: none;">
+                <div class="card-body">
+                    <form class="row g-3" onsubmit="return false;" id="ana">
+
+                        <h5 class="card-title"><strong>Anamnese</strong></h5>
+                        <p class="card-text">Insira seus dados na anamnese para ser possível estabelecer seus treinos
+                        </p>
+
+
+                        <div class="col-md-12">
+                            <label for="comorbidade" class="control-label">Você possui alguma comorbidade(s)? Se sim,
+                                qual(is)?</label>
+                            <textarea type="text" class="form-control" id="comorbidade" placeholder=""></textarea>
+                        </div>
+
+                        <div class="col-md-12">
+                            <label for="uso_medicacao" class="control-label">Você toma algum(uns) tipo(s) de
+                                medicamento(s)? Se sim, qual(is)?</label>
+                            <textarea type="text" class="form-control" id="uso_medicacao" placeholder=""></textarea>
+                        </div>
+
+                        <div class="col-md-12">
+                            <label for="patologia" class="control-label">Patologia</label>
+                            <textarea type="text" class="form-control" id="patologia" placeholder=""></textarea>
+                        </div>
+
+
+                        <div class="alert alert-danger" role="alert" id="error" style="display: none;"></div>
+                        <div class="alert alert-success" role="alert" id="success" style="display: none;"></div>
+
+                        <div class="container d-flex justify-content-center align-items-center">
+
+                            <div class="progresses">
+
+
+                                <div class="steps" id="checked">
+                                    <span><i class="fa fa-check"></i></span>
+                                </div>
+
+                                <span class="line" id="checked"></span>
+
+                                <div class="steps" id="check">
+                                    <span class="font-weight-bold">2</span>
+                                </div>
+
+
+                                <span class="line"></span>
+
+                                <div class="steps">
+                                    <span class="font-weight-bold">3</span>
+                                </div>
+
+                            </div>
+
+                        </div>
+
+                        <div class="alert alert-danger" role="alert" id="error" style="display: none;"></div>
+                        <div class="alert alert-success" role="alert" id="success" style="display: none;"></div>
+                        
+                        <div class="d-grid gap-2">
+                            <button type="submit" class="btn btn-primary" id="b"
+                                style="--bs-btn-border-radius: .6rem;">Continuar</button>
+                        </div>
+
+
+
+                    </form>
+                </div>
+            </div>
+
+            <div class="card" id="etapa3" style="display: none;">
+                <div class="card-body">
+                    <form class="row g-3" onsubmit="return false;" id="anam">
+
+                        <h5 class="card-title"><strong>Anamnese</strong></h5>
+                        <p class="card-text">Insira seus dados na anamnese para ser possível estabelecer seus treinos
+                        </p>
+
+
+
+
+                        <div class="col-md-12">
+                            <label for="frequencia_cardiaca" class="control-label">Qual sua frequência cardíaca?</label>
+                            <textarea type="text" class="form-control" id="frequencia_cardiaca"
+                                placeholder=""></textarea>
+                        </div>
+
+                        <div class="col-md-12">
+                            <label for="uso_suplemento_alimentar" class="control-label">Você usa algum suplemento
+                                alimentar? Se sim, qual(is)?</label>
+                            <textarea type="text" class="form-control" id="uso_suplemento_alimentar"
+                                placeholder=""></textarea>
+                        </div>
+
+                        <div class="col-md-12">
+                            <label for="periodo_menstruacao" class="control-label">Qual seu período menstrual? *se for
+                                mulher</label>
+                            <textarea type="text" class="form-control" id="periodo_menstruacao"
+                                placeholder=""></textarea>
+                        </div>
+
+                        <div class="col-md-12">
+                            <label for="objetivo" class="control-label">Qual seu objetivo ao realizar o
+                                treinamento?</label>
+                            <textarea type="text" class="form-control" id="objetivo" placeholder=""></textarea>
+                        </div>
+
+
+
+                        <div class="container d-flex justify-content-center align-items-center">
+
+                            <div class="progresses">
+
+
+                                <div class="steps" id="checked">
+                                    <span><i class="fa fa-check"></i></span>
+                                </div>
+
+                                <span class="line" id="checked"></span>
+
+                                <div class="steps" id="checked">
+                                    <span><i class="fa fa-check"></i></span>
+                                </div>
+
+                                <span class="line" id="checked"></span>
+
+                                <div class="steps" id="check">
+                                    <span class="font-weight-bold">3</span>
+                                </div>
+
+                            </div>
+
+                        </div>
+
+                        <div class="alert alert-danger" role="alert" id="error" style="display: none;"></div>
+                        <div class="alert alert-success" role="alert" id="success" style="display: none;"></div>
+                        <div class="d-grid gap-2">
+                            <button type="submit" class="btn btn-primary" id="b"
+                                style="--bs-btn-border-radius: .6rem;">Enviar</button>
+                        </div>
+
+
+
+
+                    </form>
+                </div>
+            </div>
+
+
+
+
+            <div class="card-info" id="infos" style="display: block;">
+                <div class="info-anamnese">
+                    <p>Anamnese é</p>
+                </div>
+
+                <div class="info-anamnese">
+                    <p>Anamnese é</p>
+                </div>
+
+                <div class="info-anamnese">
+                    <p>Anamnese é</p>
+                </div>
+            </div>
+
+        </div>
+    </div>
+
+
+    
+<div id="successo" style="display: none;">
+    <div class="container">
+     
+      <div class="card-success">    
+        <div class="card-body-success">    
+     
+            <h5 class="card-title-success"><strong>Anamnese cadastrada</strong></h5>
+            <div class="container d-flex justify-content-center align-items-center">
+
+                <div class="progresses">
+
+
+                    <div class="steps" id="checked">
+                        <span><i class="fa fa-check"></i></span>
+                    </div>
+
+                    <span class="line" id="checked"></span>
+
+                    <div class="steps" id="checked">
+                        <span><i class="fa fa-check"></i></span>
+                    </div>
+
+                    <span class="line" id="checked"></span>
+
+                    <div class="steps" id="checked">
+                        <span><i class="fa fa-check"></i></span>
+                    </div>
+
+                </div>
+
+            </div>
+            <p class="card-text-success">Você cadastrou sua anamnese com sucesso!</p>
+            <a href="/aluno/home"><button class="btn btn-primary" id="btn" style="--bs-btn-border-radius: .6rem;">Voltar para página principal</button></a>
+            <a href="/aluno/anamnese/editar"><button class="btn" id="btn-edit" style="--bs-btn-border-radius: .6rem;">Editar anamnese</button></a>
+
+        </div>
+      </div>
+    </div>
+  
+  </div>
+
+    <script src="/js/anamneseedit.js"></script>
+</body>
+
+</html>

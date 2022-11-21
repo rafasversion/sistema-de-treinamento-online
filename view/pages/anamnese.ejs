@@ -2,155 +2,576 @@
 <html lang="pt-BR">
 
 <head>
-  <meta charset="UTF-8">
-  <meta http-equiv="X-UA-Compatible" content="IE=edge">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0-beta1/dist/css/bootstrap.min.css" rel="stylesheet"
-    integrity="sha384-0evHe/X+R7YkIZDRvuzKMRqM+OrBnVFBL6DOitfPri4tjfHxaWutUpFmBp4vmVor" crossorigin="anonymous">
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
-  <link rel="stylesheet" href="/css/anamnese.css">
-  <title>Registro</title>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0-beta1/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-0evHe/X+R7YkIZDRvuzKMRqM+OrBnVFBL6DOitfPri4tjfHxaWutUpFmBp4vmVor" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <link rel="stylesheet"
+        href="https://maxst.icons8.com/vue-static/landings/line-awesome/line-awesome/1.3.0/css/line-awesome.min.css">
+    <link rel="stylesheet" href="/css/ana.css">
+    <title>Anamnese</title>
 </head>
 
 <body>
 
-  <div class="mask">
-  <header class="cabecalho">
-    <img class="logo1" src="/img/logo_2.png">
-    <nav class="menu">
 
-      <a class="nav-link">Home</a>
-      <a class="nav-link">Histórico</a>
-      <a class="nav-link" href="/login"><span class="fa fa-sign-in"></span> Login</a>
-    </nav>
-  </header>
+    <header class="cabecalho">
+        <nav class="menu">
+
+            <a class="nav-link" href="/aluno/home"><span class="las la-arrow-left"></span></a>
+            <a>Envie sua anamnese</a>
+        </nav>
+    </header>
 
 
 
-<div class="container">
-   
-  <div class="card">    
-    <div class="card-body"> 
+    <div class="container">
+        <div class="colluns">
+
+            <!-- card etapa 1-->
+            <div class="card" id="etapa1">
+                <div class="card-body">
+
+
+
+                    <form class="row g-3" onsubmit="return false;" id="anamnese">
+
+                        <h5 class="card-title"><strong>Anamnese</strong></h5>
+                        <p class="card-text">Insira seus dados na anamnese para ser possível estabelecer seus treinos
+                        </p>
+
+                        <div class="container d-flex justify-content-center align-items-center">
+
+                          <div class="progresses">
+
+
+                              <div class="steps" id="check">
+                                  <span class="font-weight-bold">1</span>
+                              </div>
+
+                              <span class="line"></span>
+
+                              <div class="steps">
+                                  <span class="font-weight-bold">2</span>
+                              </div>
+
+
+                              <span class="line"></span>
+
+                              <div class="steps">
+                                  <span class="font-weight-bold">3</span>
+                              </div>
+
+                          </div>
+
+                      </div>
+                      
+                        <div class="col-md-6">
+                            <label for="naturalidade" class="control-label">Naturalidade:</label>
+                            <select class="custom-select" id="naturalidade"
+                                style="width: 100%; height: 60%; border: rgb(203, 202, 202) 1px solid; border-radius: 5px;">
+                                <option selected disabled value="" style="padding-left: .1rem; color:grey;">Escolha...
+                                </option>
+                                <option>Brasil</option>
+                                <option>Uruguai</option>
+                                <option>Nova Zelândia</option>
+                                <option>Estados Unidos</option>
+                                <option>Outro</option>
+                            </select>
+                        </div>
+
+                        <div class="col-md-6">
+                            <label for="profissao" class="control-label">Profissão:</label>
+                            <input type="text" class="form-control" id="profissao" placeholder="">
+                        </div>
+
+                        <div class="col-md-3">
+                            <label for="peso" class="control-label">Peso:</label>
+                            <input type="text" class="form-control" id="peso" placeholder="">
+                        </div>
+
+                        <div class="col-md-3">
+                            <label for="altura" class="control-label">Altura:</label>
+                            <input type="text" class="form-control" id="altura" placeholder="">
+                        </div>
+
+                        <div class="col-md-6">
+                            <label for="tipo_sanguineo" class="control-label">Tipagem sanguínea:</label>
+                            <select class="custom-select" id="tipo_sanguineo"
+                                style="width: 100%; height: 60%; border: rgb(203, 202, 202) 1px solid; border-radius: 5px;">
+                                <option selected disabled value="" style="padding-left: .1rem; color:grey;">Escolha...
+                                </option>
+                                <option>A+</option>
+                                <option>A-</option>
+                                <option>B+</option>
+                                <option>B-</option>
+                                <option>AB+</option>
+                                <option>AB-</option>
+                                <option>O+</option>
+                                <option>O-</option>
+                            </select>
+                        </div>
+
+
+                        <div class="col-md-6">
+                            <label for="contato_emergencia" class="control-label">Contato de emergência:</label>
+                            <input type="number" class="form-control" id="contato_emergencia" placeholder="">
+                        </div>
+
+                        <div class="col-md-6">
+                            <label for="horas_sono" class="control-label">Horas de sono:</label>
+                            <input type="text" class="form-control" id="horas_sono" placeholder="">
+                        </div>
+
+                        <div class="col-md-12">
+                            <label class="control-label" for="atual_exercicio">Você faz algum tipo de exercício?</label>
+                            <input class="form-check-input" type="radio" id="exercicio-true" name="exercicio" value="Sim">
+                            <label class="form-check-label" for="flexRadioDisabled">Sim</label>
+                
+                            <input class="form-check-input" type="radio" id="exercicio-false" name="exercicio" value="Não">
+                            <label class="form-check-label" for="flexRadioDisabled">Não</label>
+                          </div>
+
+                        <div class="col-md-12">
+                            <label for="historico_exercicio_frequencia" class="control-label">Com qual frequência você
+                                faz exercícios?</label>
+                            <textarea type="text" class="form-control" id="historico_exercicio_frequencia"
+                                placeholder=""></textarea>
+                        </div>
+
+                        <div class="col-md-12">
+                            <label for="historico_exercicio_tempo" class="control-label">Qual a duração dos seus
+                                exercícios?</label>
+                            <textarea type="text" class="form-control" id="historico_exercicio_tempo"
+                                placeholder=""></textarea>
+                        </div>
+
+                        <div class="col-md-12">
+                            <label for="antigo_exercicio" class="control-label">Se não faz, já fez algum tipo de exercício?</label>
+                            <input class="form-check-input" type="radio" name="antigo_exercicio" id="antigo_exercicio_true" value="Sim">
+                            <label class="form-check-label" for="flexRadioDisabled">
+                              Sim
+                            </label>
+                            <input class="form-check-input" type="radio" name="antigo_exercicio" id="antigo_exercicio_false" value="Não">
+                            <label class="form-check-label" for="flexRadioDisabled">
+                              Não
+                            </label>
+                        </div>
+
+                        <div class="alert alert-danger" role="alert" id="error" style="display: none;"></div>
+                        <div class="alert alert-success" role="alert" id="success" style="display: none;"></div>
+
+                        
+
+                        <div class="d-grid gap-2">
+                            <button type="submit" class="btn btn-primary" id="b"
+                                style="--bs-btn-border-radius: .6rem;">Continuar</button>
+                        </div>
+
+                    </form>
+                </div>
+            </div>
+
+            <div class="card" id="etapa2" style="display: none; height: 850px;">
+                <div class="card-body">
+                    <form class="row g-3" onsubmit="return false;" id="ana">
+
+                        <h5 class="card-title"><strong>Anamnese</strong></h5>
+                        <p class="card-text">Insira seus dados na anamnese para ser possível estabelecer seus treinos
+                        </p>
+
+                        <div class="container d-flex justify-content-center align-items-center">
+
+                            <div class="progresses">
+
+
+                                <div class="steps" id="checked">
+                                    <span><i class="fa fa-check"></i></span>
+                                </div>
+
+                                <span class="line" id="checked"></span>
+
+                                <div class="steps" id="check">
+                                    <span class="font-weight-bold">2</span>
+                                </div>
+
+
+                                <span class="line"></span>
+
+                                <div class="steps">
+                                    <span class="font-weight-bold">3</span>
+                                </div>
+
+                            </div>
+
+                        </div>
+
+                        <div class="col-md-12">
+                            <label for="patologia" class="control-label">Você tem ou teve alguma(s) das patologias abaixo?</label>
+                            <br>
+
+                            <div id="pat">
+                            <div class="col-pat">
+                            <div class="pat-item">
+                            <input class="form-check-input" type="checkbox" name="patologia" id="coracao" value="Problemas do Coração">
+                            <label class="form-check-label" for="patologia">
+                              Problemas do Coração
+                            </label>
+                            </div>
+                            
+                            <div class="pat-item">
+                            <input class="form-check-input" type="checkbox" id="pulmonares" name="patologia" value="Problemas pulmonares">
+                            <label class="form-check-label" for="patologia">
+                              Problemas pulmonares
+                            </label>
+                            </div>
+
+                            <div class="pat-item">
+                            <input class="form-check-input" type="checkbox" name="patologia" id="tonturas" value="Tonturas">
+                            <label class="form-check-label" for="patologia">
+                              Tonturas
+                            </label>
+                            </div>
+
+                            <div class="pat-item">
+                            <input class="form-check-input" type="checkbox" name="patologia" id="hipertensao" value="Hipertensão">
+                            <label class="form-check-label" for="patologia">
+                              Hipertensão
+                            </label>
+                            </div>
+
+                            <div class="pat-item">
+                            <input class="form-check-input" type="checkbox" name="patologia" id="bronquite" value="Bronquite">
+                            <label class="form-check-label" for="patologia">
+                              Bronquite
+                            </label>
+                            </div>
+
+                            <div class="pat-item">
+                            <input class="form-check-input" type="checkbox" name="patologia" id="asma" value="Asma">
+                            <label class="form-check-label" for="patologia">
+                              Asma
+                            </label>
+                            </div>
+                        </div>
+
+                        <div class="col-pat">
+
+                            <div class="pat-item">
+                            <input class="form-check-input" type="checkbox" name="patologia" id="colesterol" value="LDL acima de 200mg/dl (colesterol)">
+                            <label class="form-check-label" for="patologia">
+                              LDL acima de 200mg/dl (colesterol)                            
+                            </label>
+                            </div>
+
+                            <div class="pat-item">
+                            <input class="form-check-input" type="checkbox" name="patologia" id="diabete" value="Diabetes">
+                            <label class="form-check-label" for="patologia">
+                              Diabetes
+                            </label>
+                            </div>
+
+                            <div class="pat-item">
+                            <input class="form-check-input" type="checkbox" name="patologia" id="convulcao" value="Convulções">
+                            <label class="form-check-label" for="patologia">
+                              Convulções
+                            </label>
+                            </div>
+
+                            <div class="pat-item">
+                            <input class="form-check-input" type="checkbox" name="patologia" id="fratura" value="Fratura óssea">
+                            <label class="form-check-label" for="patologia">
+                              Fratura óssea
+                            </label>
+                            </div>
+
+                            <div class="pat-item">
+                            <input class="form-check-input" type="checkbox" name="patologia" id="dor_costas" value="Dor nas costas com frequência">
+                            <label class="form-check-label" for="patologia">
+                              Dor nas costas com frequência
+                            </label>
+                            </div>
+
+                            <div class="pat-item">
+                            <input class="form-check-input" type="checkbox" name="patologia" id="osteoporose" value="Osteoporose">
+                            <label class="form-check-label" for="patologia">
+                              Osteoporose
+                            </label>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                        <div class="col-md-12">
+
+                            <label for="comorbidade_familiar" class="control-label">Alguém da sua família (pai, mãe, irmãos ou filhos) possue algum problema de saúde como:</label>
+
+                            <div class="cf-item">
+                            <input class="form-check-input" type="checkbox" name="comorbidade_familiar" id="coracao" value="Problemas do Coração">
+                            <label class="form-check-label" for="comorbidade_familiar">
+                              Problemas do Coração
+                            </label>
+                            </div>
+
+                            <div class="cf-item">
+                            <input class="form-check-input" type="checkbox" name="comorbidade_familiar" id="metabologicas" value="Doenças Metabológicas">
+                            <label class="form-check-label" for="comorbidade_familiar">
+                              Doenças Metabológicas
+                            </label>
+                            </div>
+
+                            <div class="cf-item">
+                            <input class="form-check-input" type="checkbox" name="comorbidade_familiar" id="convulcoes" value="Convulções">
+                            <label class="form-check-label" for="comorbidade_familiar">
+                              Convulções
+                            </label>
+                            </div>
+
+                            <div class="cf-item">
+                            <input class="form-check-input" type="checkbox" name="comorbidade_familiar" id="cancer_geral" value="Câncer em geral">
+                            <label class="form-check-label" for="comorbidade_familiar">
+                              Câncer em geral
+                            </label>
+                            </div>
+
+                        </div>
+
+                        <div class="col-md-12">
+                            <label for="uso_medicacao" class="control-label">Você toma algum(uns) tipo(s) de medicamento(s)? Se sim, qual(is) e para qual(is) problema(s)?</label>
+                            <textarea type="text" class="form-control" id="uso_medicacao" placeholder=""></textarea>
+                        </div>
+
+
+
+                        <div class="alert alert-danger" role="alert" id="error" style="display: none;"></div>
+                        <div class="alert alert-success" role="alert" id="success" style="display: none;"></div>
+
+                      
+                        
+                        <div class="d-grid gap-2">
+                            <button type="submit" class="btn btn-primary" id="b"
+                                style="--bs-btn-border-radius: .6rem;">Continuar</button>
+                        </div>
+
+
+
+                    </form>
+                </div>
+            </div>
+
+            <div class="card" id="etapa3" style="display: none; height: 900px;">
+                <div class="card-body">
+                    <form class="row g-3" onsubmit="return false;" id="anam">
+
+                        <h5 class="card-title"><strong>Anamnese</strong></h5>
+                        <p class="card-text">Insira seus dados na anamnese para ser possível estabelecer seus treinos
+                        </p>
+
+                        <div class="container d-flex justify-content-center align-items-center">
+
+                          <div class="progresses">
+
+
+                              <div class="steps" id="checked">
+                                  <span><i class="fa fa-check"></i></span>
+                              </div>
+
+                              <span class="line" id="checked"></span>
+
+                              <div class="steps" id="checked">
+                                  <span><i class="fa fa-check"></i></span>
+                              </div>
+
+                              <span class="line" id="checked"></span>
+
+                              <div class="steps" id="check">
+                                  <span class="font-weight-bold">3</span>
+                              </div>
+
+                          </div>
+
+                      </div>
+
+                        <div class="col-md-12">
+                            <label for="frequencia_cardiaca_repouso" class="control-label">Qual sua frequência cardíaca em repouso?</label>
+                            <textarea type="text" class="form-control" id="frequencia_cardiaca_repouso"
+                                placeholder=""></textarea>
+                        </div>
+
+                        <div class="col-md-12">
+                            <label for="uso_suplemento_alimentar" class="control-label">Você usa algum suplemento
+                                alimentar? Se sim, qual(is)?</label>
+                            <textarea type="text" class="form-control" id="uso_suplemento_alimentar"
+                                placeholder=""></textarea>
+                        </div>
+
+                        <div class="col-md-12">
+                            <label for="refeicoes" class="control-label">Faz quantas refeições por dia?</label>
+                            <input class="form-check-input" type="radio" name="refeicoes" id="1" value="1">
+                            <label class="form-check-label" for="refeicoes">
+                              1
+                            </label>
+                            <input class="form-check-input" type="radio" name="refeicoes" id="2" value="2">
+                            <label class="form-check-label" for="refeicoes">
+                              2
+                            </label>
+                            <input class="form-check-input" type="radio" name="refeicoes" id="3" value="3">
+                            <label class="form-check-label" for="refeicoes">
+                              3
+                            </label>
+                            <input class="form-check-input" type="radio" name="refeicoes" id="4" value="4">
+                            <label class="form-check-label" for="refeicoes">
+                              4
+                            </label>
+                            <input class="form-check-input" type="radio" name="refeicoes" id="5" value="5">
+                            <label class="form-check-label" for="refeicoes">
+                              5
+                            </label>
+                            <input class="form-check-input" type="radio" name="refeicoes" id="maisde5" value="Mais de 5">
+                            <label class="form-check-label" for="refeicoes">
+                              Mais de 5
+                            </label>
+                        </div>
+
+                        <div class="col-md-12">
+                            <label for="periodo_menstruacao" class="control-label">Qual seu período menstrual? *se for
+                                mulher</label>
+                            <textarea type="text" class="form-control" id="periodo_menstruacao"
+                                placeholder=""></textarea>
+                        </div>
+
+                        
+                        <div class="col-md-12">
+                            <label for="objetivo" class="control-label">Qual seu objetivo ao realizar o treinamento?</label>
+                            <div id="pat">
+                            <div class="col-pat">
+                            <div class="pat-item">
+                            <input class="form-check-input" type="radio" id="hipertrofia" name="objetivo"  value="Hipertrofia">
+                            <label class="form-check-label" for="objetivo">
+                              Hipertrofia (Aumento de massa muscular)
+                            </label>
+                            </div>
+
+                            <div class="pat-item">
+                            <input class="form-check-input" type="radio" id="reducao_gordura" name="objetivo" value="Redução do % da gordura">
+                            <label class="form-check-label" for="objetivo">
+                              Redução do % da gordura
+                            </label>
+                        </div>
+
+
+                            <div class="pat-item">
+                            <input class="form-check-input" type="radio" id="autoestima" name="objetivo" value="Autoestima">
+                            <label class="form-check-label" for="objetivo">
+                              Autoestima
+                            </label>
+                            </div>
+                            
+                            <div class="col-pat">
+                            <div class="pat-item">
+                            <input class="form-check-input" type="radio" id="aumento_aerobica" name="objetivo" value="Aumento da capacidade aeróbica">
+                            <label class="form-check-label" for="objetivo">
+                              Aumento da capacidade aeróbica
+                            </label>
+                            </div>
+
+                            <div class="pat-item">
+                            <input class="form-check-input" type="radio" id="aumento_flexibilidade" name="objetivo" value="Aumento de força para flexibilidade">
+                            <label class="form-check-label" for="objetivo">
+                              Aumento de força para flexibilidade
+                            </label>
+                            </div>
+
+                            <div class="pat-item">
+                            <input class="form-check-input" type="radio" id="aumento_forca_saude" name="objetivo" value="Aumento de força para benefícios a saúde em geral">
+                            <label class="form-check-label" for="objetivo">
+                              Aumento de força para benefícios a saúde em geral
+                            </label>
+                            </div>
+
+                            <div class="pat-item">
+                            <input class="form-check-input" type="radio" id="outro" name="objetivo" value="Outro">
+                            <label class="form-check-label" for="objetivo">
+                              Outro
+                            </label>
+                            </div>
+                            </div>
+                            </div>
+
+                        </div>
+
+
+
+                        
+
+                        <div class="alert alert-danger" role="alert" id="error" style="display: none;"></div>
+                        <div class="alert alert-success" role="alert" id="success" style="display: none;"></div>
+                        <div class="d-grid gap-2">
+                            <button type="submit" class="btn btn-primary" id="b"
+                                style="--bs-btn-border-radius: .6rem;">Enviar</button>
+                        </div>
+
+
+
+
+                    </form>
+                </div>
+            </div>
+
+
+
+
+            
+
+        </div>
+    </div>
+
 
     
+<div id="successo" style="display: none;">
+    <div class="container">
+     
+      <div class="card-success">    
+        <div class="card-body-success">    
+     
+            <h5 class="card-title-success"><strong>Anamnese cadastrada</strong></h5>
+            <div class="container d-flex justify-content-center align-items-center">
 
-      <form class="row g-3" onsubmit="return false;" id="anamnese">
- 
-        <h5 class="card-title"><strong>Anamnese</strong></h5>
-        <p class="card-text">Insira os seus dados para criar sua conta</p>
+                <div class="progresses">
 
-        <div class="col-md-4">
-          <label for="naturalidade" class="control-label">Naturalidade:</label>
-          <select class="custom-select" id="naturalidade" style="width: 100%; height: 60%; border: rgb(203, 202, 202) 1px solid; border-radius: 5px;">
-            <option selected disabled value="" style="padding-left: .1rem; color:grey;">Escolha...</option>
-            <option>Sombrio</option>
-            <option>Araranguá</option>
-          </select>
+
+                    <div class="steps" id="checked">
+                        <span><i class="fa fa-check"></i></span>
+                    </div>
+
+                    <span class="line" id="checked"></span>
+
+                    <div class="steps" id="checked">
+                        <span><i class="fa fa-check"></i></span>
+                    </div>
+
+                    <span class="line" id="checked"></span>
+
+                    <div class="steps" id="checked">
+                        <span><i class="fa fa-check"></i></span>
+                    </div>
+
+                </div>
+
+            </div>
+            <p class="card-text-success">Você cadastrou sua anamnese com sucesso!</p>
+            <a href="/aluno/home"><button class="btn btn-primary" id="btn" style="--bs-btn-border-radius: .6rem;">Voltar para página principal</button></a>
+            <a href="/aluno/anamnese/editar"><button class="btn" id="btn-edit" style="--bs-btn-border-radius: .6rem;">Editar anamnese</button></a>
+
         </div>
-
-        <div class="col-md-4">
-          <label for="profissao" class="control-label">Profissão:</label>
-          <input type="text" class="form-control" id="profissao" placeholder="">
-        </div>
-
-        <div class="col-md-2">
-          <label for="peso" class="control-label">Peso:</label>
-          <input type="text" class="form-control" id="peso" placeholder="">
-        </div>
-
-        <div class="col-md-2">
-          <label for="altura" class="control-label">Altura:</label>
-          <input type="text" class="form-control" id="altura" placeholder="">
-        </div>
-
-        <div class="col-md-4">
-          <label for="tipo_sanguineo" class="control-label">Tipagem sanguínea:</label>
-          <select class="custom-select" id="tipo_sanguineo" style="width: 100%; height: 60%; border: rgb(203, 202, 202) 1px solid; border-radius: 5px;">
-            <option selected disabled value="" style="padding-left: .1rem; color:grey;">Escolha...</option>
-            <option>A+</option>
-            <option>A-</option>
-            <option>B+</option>
-            <option>B-</option>
-            <option>AB+</option>
-            <option>AB-</option>
-            <option>O+</option>
-            <option>O-</option>
-          </select>
-        </div>
-
-        <div class="col-md-4">
-          <label for="horas_sono" class="control-label">Horas de sono:</label>
-          <input type="text" class="form-control" id="horas_sono" placeholder="">
-        </div>
-
-        <div class="col-md-4">
-          <label for="periodo_menstruacao" class="control-label">Periodo menstrual:</label>
-          <input type="text" class="form-control" id="periodo_menstruacao" placeholder="">
-        </div>
-
-        <div class="col-md-4">
-          <label for="contato_emergencia" class="control-label">Contato de emergência:</label>
-          <input type="number" class="form-control" id="contato_emergencia" placeholder="">
-        </div>
-
-        <div class="col-md-4">
-          <label for="frequencia_cardiaca" class="control-label">Frequência cardíaca:</label>
-          <input type="text" class="form-control" id="frequencia_cardiaca" placeholder="">
-        </div>
-
-        <div class="col-md-4">
-          <label for="uso_suplemento_alimentar class="control-label">Suplementos alimentares:</label>
-          <textarea type="text" class="form-control" id="uso_suplemento_alimentar" placeholder=""></textarea>
-        </div>
-
-        <div class="col-md-4">
-          <label for="patologia" class="control-label">Patologia:</label>
-          <textarea type="text" class="form-control" id="patologia" placeholder=""></textarea>
-        </div>
-
-        <div class="col-md-4">
-          <label for="comorbidade" class="control-label">Comorbidades:</label>
-          <textarea type="text" class="form-control" id="comorbidade" placeholder=""></textarea>
-        </div>
-
-        <div class="col-md-4">
-          <label for="uso_medicacao" class="control-label">Medicamentos:</label>
-          <textarea type="text" class="form-control" id="uso_medicacao" placeholder=""></textarea>
-        </div>
-
-        <div class="col-md-4">
-          <label for="objetivo" class="control-label">Objetivo:</label>
-          <textarea type="text" class="form-control" id="objetivo" placeholder=""></textarea>
-        </div>
-
-        <div class="col-md-4">
-          <label for="historico_exercicio_frequencia" class="control-label">Frequência Exercícios:</label>
-          <textarea type="text" class="form-control" id="historico_exercicio_frequencia" placeholder=""></textarea>
-        </div>
-
-        <div class="col-md-4">
-          <label for="historico_exercicio_tempo" class="control-label">Tempo Exercícios:</label>
-          <textarea type="text" class="form-control" id="historico_exercicio_tempo" placeholder=""></textarea>
-        </div>
-
-         
-        <div class="alert alert-danger" role="alert" id="error" style="display: none;"></div>
-        <div class="alert alert-success" role="alert" id="success" style="display: none;"></div>
-
-        
-        <div class="d-grid gap-2">
-          <button type="submit" class="btn btn-primary" id="b" style="--bs-btn-border-radius: .6rem;">Cadastar</button>
-        </div>
-
-       
-
-      </form>
+      </div>
+    </div>
+  
   </div>
-</div>
-</div>
-</div>
-    
-  <script src="/js/anamnese.js"></script>
+
+    <script src="/js/anamnese.js"></script>
 </body>
 
 </html>

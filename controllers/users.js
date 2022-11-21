@@ -23,25 +23,23 @@ db.query("SELECT * FROM aluno", (err, result) => {
 
       req.post = results[0];
 
-      db.query("SELECT * FROM treino", (error, resultes) => {
+      db.query("select * from treino inner join aluno on treino.id_treino = aluno.id_aluno;", (error, resultes) => {
 
         db.query("SELECT COUNT(id_treino) AS id_treinocount FROM treino", (error, resultados) => {
 
+          db.query("SELECT COUNT(status_treino) FROM treino WHERE status_treino =  'Incompleto'", (error, status) => {
+
       req.treino = resultados[0];
 
-      db.query("SELECT COUNT(status_treino) FROM treino GROUP BY status_treino HAVING COUNT(status_treino) = 'Incompleto'", (error, result_status) => {
-
-        req.status = result_status[0];
-        status_c = result_status[0]
-
-      db.query("SELECT COUNT(id_post) AS id_postcount FROM postagens", (error, results) => {
-   res.render("pages/dashboard", {result, rows, results, resultes, resultados, treino:req.treino, status_c})
-    })
-  })
+      req.status = Object.values(status[0])[0]
+     
+   res.render("pages/dashboard", {result, rows, results, resultes, resultados, treino:req.treino, status: req.status})
+  
 })
     })
   })
 })
+  })
 })
 }
 

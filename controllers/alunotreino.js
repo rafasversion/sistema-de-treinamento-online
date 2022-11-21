@@ -14,6 +14,7 @@ const novotreino = async (req, res) => {
      req.anamnese = resultes[0];    
      req.user = result[0];
      res.render('pages/novotreino', { user:req.user, anamnese:req.anamnese });
+     res.render('pages/homealuno', { anamnese:req.anamnese });
      console.log(result[0]);
      
     } else {

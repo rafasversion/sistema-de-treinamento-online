@@ -1,323 +1,105 @@
 <!DOCTYPE html>
 <html lang="pt-br">
+
 <head></head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE-edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-Zenh87qX5JnK2Jl0vWa8Ck2rdkQ2Bzep5IDxbcnCeuOxjzrPF/et3URy9Bv1WTRi" crossorigin="anonymous">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
-    <link rel="stylesheet" href="https://maxst.icons8.com/vue-static/landings/line-awesome/line-awesome/1.3.0/css/line-awesome.min.css">
-    <link rel="stylesheet" href="/css/homepage.css">
-    <title></title>
+<meta charset="UTF-8">
+<meta http-equiv="X-UA-Compatible" content="IE-edge">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/css/bootstrap.min.css" rel="stylesheet"
+  integrity="sha384-Zenh87qX5JnK2Jl0vWa8Ck2rdkQ2Bzep5IDxbcnCeuOxjzrPF/et3URy9Bv1WTRi" crossorigin="anonymous">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+<link rel="stylesheet"
+  href="https://maxst.icons8.com/vue-static/landings/line-awesome/line-awesome/1.3.0/css/line-awesome.min.css">
+<link rel="stylesheet" href="/css/homepage.css">
+<link rel="shortcut icon" href="/img/logo.png">
+<title>Dani Teixeira</title>
 </head>
+
 <body>
-  
-    </head>
-    <body>
-     
-       
-          <div class="background">
-            <div class="mask"> 
-            
-          <header>
-            <nav>
-              <img class="logo" src="img/logo_2.png"/>
-              <div class="mobile-menu">
-                <div class="line1"></div>
-                <div class="line2"></div>
-                <div class="line3"></div>
-              </div>
-              <ul class="nav-list">
-                <li><a href="/">Home</a></li>
-                <li><a href="#">Sobre</a></li>
-              
-                <% if(status == "loggedin") {%> 
-      
-                  <li><a href="/profile"><span class="fa fa-user"></span> Acessar conta</a></li>
-            
-                  <% } else { %> 
-                  <li><a href="/login"><span class="fa fa-sign-in"></span> Login</a></li>
-                  <% } %>
-              </ul>
-            </nav>
-          </header>
-          
-    <main class="conteudo">
-      <section class="conteudo-principal">
-          
-          <div class="conteudo-escrito">
-              
+
+  </head>
+
+  <body>
+
+
+    <div class="background">
+      <div class="mask">
+
+        <header>
+          <nav>
+            <img class="logo" src="img/logo_2.png" />
+            <div class="mobile-menu">
+              <div class="line1"></div>
+              <div class="line2"></div>
+              <div class="line3"></div>
+            </div>
+            <ul class="nav-list">
+              <li><a href="/">Home</a></li>
+              <li><a href="#">Sobre</a></li>
+
+              <li><a href="/login"><span class="fa fa-sign-in"></span> Entrar</a></li>
+            </ul>
+          </nav>
+        </header>
+
+        <main class="conteudo">
+          <section class="conteudo-principal">
+
+            <div class="conteudo-escrito">
+
               <h1 class="titulo-principal">Dani Teixeira</h1>
               <h3 class="subtitulo-principal">PERSONAL TRAINER</h3>
-              <h3 class="subtitulo-principal">Tenha a experiência de ter um atendimento personalizado e atenção exclusiva para seus treinos.</h3>
-          
-              
-      
+              <h3 class="subtitulo-principal">Tenha a experiência de ter um atendimento personalizado e atenção
+                exclusiva para seus treinos.</h3>
+
+
+
               <div class="botoes">
-                <% if(status != "loggedin") {%> 
-    
-                  <button class="btnn"><a href="/registro" style="color: white; text-decoration: none;">Comece agora</a></button>
-                  <button class="botao-secundario"><a href="/login" style="color: white; text-decoration: none;">Fazer login</a></button>
-            
-                  <% } else { %> 
-                    <button class="btnn"><a href="/profile" style="color: white; text-decoration: none;">Ver Perfil</a></button>
-                  <% } %> 
-              
-              </div>
-              
-          </div>
-          <p></p>
-      </section>
-</div>
-</div> 
 
-      <section class="conteudo-secundario">
-        <div id="carouselExampleCaptions" class="carousel slide" data-bs-ride="false">
-          <div class="carousel-indicators">
-            <button type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide-to="0" class="active" aria-current="true" aria-label="Slide 1"></button>
-            <button type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide-to="1" aria-label="Slide 2"></button>
-            <button type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide-to="2" aria-label="Slide 3"></button>
-          </div>
+                <a href="/registro"><button class="btnn" style="color: white; text-decoration: none;"">Comece agora</button></a>
+                  <a href=" /login"><button class="botao-secundario"
+                      style="color: white; text-decoration: none;">Acessar conta</button></a>
 
-          <div class="carousel-inner">
-            <div class="carousel-item active">
-              <img src="img/banner.png" class="d-block w-100" alt="...">
-              <div class="carousel-caption d-none d-md-block">
-                <h5>First slide label</h5>
-                <p>Some representative placeholder content for the first slide.</p>
               </div>
+
             </div>
-
-            <div class="carousel-item">
-              <img src="img/banner.png" class="d-block w-100" alt="...">
-              <div class="carousel-caption d-none d-md-block">
-                <h5>Second slide label</h5>
-                <p>Some representative placeholder content for the second slide.</p>
-              </div>
-            </div>
-
-            <div class="carousel-item">
-              <img src="img/banner.png" class="d-block w-100" alt="...">
-              <div class="carousel-caption d-none d-md-block">
-                <h5>Third slide label</h5>
-                <p>Some representative placeholder content for the third slide.</p>
-              </div>
-            </div>
-          </div>
-          
-          <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide="prev">
-            <span class="carousel-control-prev-icon" aria-hidden="true"></span>
-            <span class="visually-hidden">Previous</span>
-          </button>
-          <button class="carousel-control-next" type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide="next">
-            <span class="carousel-control-next-icon" aria-hidden="true"></span>
-            <span class="visually-hidden">Next</span>
-          </button>
-        </div>
-      </section>
-
-    <div class="post">
-      
-         <div class="header-aviso">
-          <p>Avisos </p>
-          <a href="/avisos"><p class="see-all">Ver todos <span class="las la-arrow-right"></span></p></a>
-         </div>
-      
-      <div class="cards-avisos">
-      <div class="card-aviso">
-        <h4>Treinar</h4>
-        <p>Treinar...</p>
-        <p class="data"><small>02/10/2022</small></p>
-      </div>
-
-      <div class="card-aviso">
-        <h4>Treinar</h4>
-        <p>Treinar...</p>
-        <p class="data"><small>02/10/2022</small></p>
-      </div>
-
-      <div class="card-aviso">
-        <h4>Treinar</h4>
-        <p>Treinar...</p>
-        <p class="data"><small>02/10/2022</small></p>
-      </div>
-
-      <div class="card-aviso">
-        <h4>Treinar</h4>
-        <p>Treinar...</p>
-        <p class="data"><small>02/10/2022</small></p>
-      </div>
-
-      <div class="card-aviso">
-        <h4>Treinar</h4>
-        <p>Treinar...</p>
-        <p class="data"><small>02/10/2022</small></p>
-      </div>
-
-      <div class="card-aviso">
-        <h4>Treinar</h4>
-        <p>Treinar...</p>
-        <p class="data"><small>02/10/2022</small></p>
-      </div>
-      <div class="card-aviso">
-        <h4>Treinar</h4>
-        <p>Treinar...</p>
-        <p class="data"><small>02/10/2022</small></p>
-      </div>
-      <div class="card-aviso">
-        <h4>Treinar</h4>
-        <p>Treinar...</p>
-        <p class="data"><small>02/10/2022</small></p>
-      </div>
-      <div class="card-aviso">
-        <h4>Treinar</h4>
-        <p>Treinar...</p>
-        <p class="data"><small>02/10/2022</small></p>
-      </div>
-      <div class="card-aviso">
-        <h4>Treinar</h4>
-        <p>Treinar...</p>
-        <p class="data"><small>02/10/2022</small></p>
-      </div>
-      </div>
-
-      
-      <div class="header-aviso">
-        <p>Lives </p>
-        <a href="/lives"><p class="see-all">Ver todas <span class="las la-arrow-right"></span></p></a>
-       </div>
-
-      <div class="cards-avisos">
-      <div class="card-aviso">
-        <h4>Treinar</h4>
-        <p>Treinar...</p>
-        <p class="data"><small>02/10/2022</small></p>
-      </div>
-
-      <div class="card-aviso">
-        <h4>Treinar</h4>
-        <p>Treinar...</p>
-        <p class="data"><small>02/10/2022</small></p>
-      </div>
-
-      <div class="card-aviso">
-        <h4>Treinar</h4>
-        <p>Treinar...</p>
-        <p class="data"><small>02/10/2022</small></p>
-      </div>
-
-      <div class="card-aviso">
-        <h4>Treinar</h4>
-        <p>Treinar...</p>
-        <p class="data"><small>02/10/2022</small></p>
-      </div>
-
-      <div class="card-aviso">
-        <h4>Treinar</h4>
-        <p>Treinar...</p>
-        <p class="data"><small>02/10/2022</small></p>
-      </div>
-
-      <div class="card-aviso">
-        <h4>Treinar</h4>
-        <p>Treinar...</p>
-        <p class="data"><small>02/10/2022</small></p>
-      </div>
-
-      <div class="card-aviso">
-        <h4>Treinar</h4>
-        <p>Treinar...</p>
-        <p class="data"><small>02/10/2022</small></p>
-      </div>
-      <div class="card-aviso">
-        <h4>Treinar</h4>
-        <p>Treinar...</p>
-        <p class="data"><small>02/10/2022</small></p>
-      </div>
-      <div class="card-aviso">
-        <h4>Treinar</h4>
-        <p>Treinar...</p>
-        <p class="data"><small>02/10/2022</small></p>
-      </div>
-      <div class="card-aviso">
-        <h4>Treinar</h4>
-        <p>Treinar...</p>
-        <p class="data"><small>02/10/2022</small></p>
-      </div>
-      </div>
-
-      <div class="header-aviso">
-        <p>Dicas </p>
-        <a href="/dicas"><p class="see-all">Ver todas <span class="las la-arrow-right"></span></p></a>
-       </div>
-
-      <div class="cards-avisos">
-      <div class="card-aviso">
-        <h4>Treinar</h4>
-        <p>Treinar...</p>
-        <p class="data"><small>02/10/2022</small></p>
-      </div>
-
-      <div class="card-aviso">
-        <h4>Treinar</h4>
-        <p>Treinar...</p>
-        <p class="data"><small>02/10/2022</small></p>
-      </div>
-
-      <div class="card-aviso">
-        <h4>Treinar</h4>
-        <p>Treinar...</p>
-        <p class="data"><small>02/10/2022</small></p>
-      </div>
-
-      <div class="card-aviso">
-        <h4>Treinar</h4>
-        <p>Treinar...</p>
-        <p class="data"><small>02/10/2022</small></p>
-      </div>
-
-      <div class="card-aviso">
-        <h4>Treinar</h4>
-        <p>Treinar...</p>
-        <p class="data"><small>02/10/2022</small></p>
-      </div>
-
-      <div class="card-aviso">
-        <h4>Treinar</h4>
-        <p>Treinar...</p>
-        <p class="data"><small>02/10/2022</small></p>
-      </div>
-
-      <div class="card-aviso">
-        <h4>Treinar</h4>
-        <p>Treinar...</p>
-        <p class="data"><small>02/10/2022</small></p>
-      </div>
-      <div class="card-aviso">
-        <h4>Treinar</h4>
-        <p>Treinar...</p>
-        <p class="data"><small>02/10/2022</small></p>
-      </div>
-      <div class="card-aviso">
-        <h4>Treinar</h4>
-        <p>Treinar...</p>
-        <p class="data"><small>02/10/2022</small></p>
-      </div>
-
+            <p></p>
+          </section>
       </div>
     </div>
 
-  </main>
-  
-  <footer class="rodape">
-      <p class="img-rodape">Aaaaaa</p>
-  </footer>
+
+      
+
+    </main>
+
+    <footer class="rodape">
+      <div class="footer__container">
+        <div class="rodape-content">
+          <img src="img/logo_2.png" class="img-rodape">
+          <div class="rodape-links">
+            <a href="/registro"><p>Faça seu cadastro</p></a>
+            <a href="/login"><p>Acesse</p></a>
+            <a href="/sobre"><p>Saiba mais</p></a>
+            <p>E-mail: daniteixeira@gmail.com</p>
+          </div>
+        </div> 
+      </div>
+      <div class="redes-sociais">
+        <a href="/instagram"><span class="fa fa-instagram"></span></a>
+        <a href="/facebook"><span class="fa fa-facebook"></span></a>
+        <a href="/facebook"><span class="fa fa-whatsapp"></span></a>
+        
+      </div>
+      
+    </footer>
 
 
-          </div>
-          </div>
-        
-          <script href="js/home.js"></script>
-        
-</body>
+    </div>
+    </div>
+
+    <script href="js/home.js"></script>
+
+  </body>
+
 </html>

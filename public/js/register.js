@@ -27,10 +27,23 @@ form.addEventListener("submit", () => {
         success.style.display = "block"
         error.style.display = "none"
         registro.style.display = "none"
+
+       
     }
   })
 })
 
+/*function ValidaCPF(){
+  var cpf_aluno = document.forms.form.cpf_aluno.value;
+  var cpfValido = /^(([0-9]{3}.[0-9]{3}.[0-9]{3}.[0-9]{2}))$/;
+  if(cpfValido.test(cpf_aluno) == false) {
+    cpf_aluno = cpf_aluno.replace(/\D/g, "");
 
+    if(cpf_aluno.length==11){
+      cpf_aluno = cpf_aluno.replace(/(\d{3})(\d)/, "$1.$2");
+      
+    }
+  }
+}*/
 
 

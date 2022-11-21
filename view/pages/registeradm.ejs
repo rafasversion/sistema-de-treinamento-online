@@ -20,8 +20,8 @@
     <nav class="menu">
 
       <a class="nav-link">Home</a>
-      <a class="nav-link">Sobre</a>
-      <a class="nav-link" href="/login"><span class="fa fa-sign-in"></span> Entrar</a>
+      <a class="nav-link">Histórico</a>
+      <a class="nav-link" href="/login"><span class="fa fa-sign-in"></span> Login</a>
     </nav>
   </header>
 
@@ -44,49 +44,23 @@
             <input class="form-control form-control-sm" id="imagem_aluno" type="file" style="width:200px; height: 20px; margin-top: 2em;">
           </div>
           <div class="col-md-6">
-            <label for="nome_aluno" class="control-label">Nome:</label>
-            <input type="text" class="form-control" id="nome_aluno" placeholder="Insira seu primeiro nome" autocomplete="off" required>
+            <label for="nome_personal" class="control-label">Nome:</label>
+            <input type="text" class="form-control" id="nome_personal" placeholder="Insira seu primeiro nome" autocomplete="off" required>
           </div>
 
           <div class="col-md-6">
-            <label for="sobrenome_aluno" class="control-label">Sobrenome:</label>
-            <input type="text" class="form-control" id="sobrenome_aluno" placeholder="Insira seu sobrenome">
-          </div>
-
-          <div class="col-md-6">
-            <label for="sexo_aluno" class="control-label" style="display: flex; flex-direction: column;">Sexo:</label>
-            <select class="custom-select" id="sexo_aluno" style="width: 100%; height: 60%; border: rgb(203, 202, 202) 1px solid; border-radius: 5px;">
-              <option selected disabled value="" style="padding-left: .1rem; color:grey;">Escolha...</option>
-              <option>Feminino</option>
-              <option>Masculino</option>
-            </select>
+            <label for="sobrenome_personal" class="control-label">Sobrenome:</label>
+            <input type="text" class="form-control" id="sobrenome_personal" placeholder="Insira seu sobrenome">
           </div>
         
-
           <div class="col-md-6">
-            <label for="data_nasc_aluno" class="control-label">Data de nascimento:</label>
-            <input type="date" class="form-control" id="data_nasc_aluno">
-          </div>
-
-           <div class="col-md-6">
-            <label for="telefone_aluno" class="control-label">Telefone:</label>
-            <input type="number" class="form-control" id="telefone_aluno" placeholder="Ex: (48) 99130-8194">
-          </div>
-
-           <div class="col-md-6">
-            <label for="cpf_aluno" class="control-label">CPF:</label>
-            <input type="number" class="form-control" id="cpf_aluno" placeholder="Ex: 147.159.289-51" maxlength="14" OnBlur="ValidaCPF();">
-          </div>
-
-
-          <div class="col-md-6">
-            <label for="email_aluno" class="control-label">E-mail:</label>
-            <input type="email" class="form-control" id="email_aluno" placeholder="Ex: exemplo@exemplo.com" autocomplete="off" required>
+            <label for="email_personal" class="control-label">E-mail:</label>
+            <input type="email" class="form-control" id="email_personal" placeholder="Ex: exemplo@exemplo.com" autocomplete="off" required>
           </div>
 
           <div class="col-md-6">
-            <label for="senha_aluno" class="control-label">Senha:</label>
-            <input type="password" class="form-control" id="senha_aluno" placeholder="******" autocomplete="off" required>
+            <label for="senha_personal" class="control-label">Senha:</label>
+            <input type="password" class="form-control" id="senha_personal" placeholder="******" autocomplete="off" required>
           </div>
 
           <div class="col-md-6">
@@ -125,7 +99,7 @@
 
 </div>
 
-  <script src="js/register.js"></script>
+  <script src="js/registeradm.js"></script>
 </body>
 
 </html>

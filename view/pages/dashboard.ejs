@@ -31,6 +31,10 @@
         <a href="/" class="order"><span class="las la-bell"></span>
         <span> Notificações</span></a>
     </li>
+    <li>
+      <a href="/logoutadm" class="order" style="color: red; opacity: 100%"><span class="las la-arrow-alt-circle-left"></span>
+      <span> Sair</span></a>
+    </li>
     </ul>
   </div>
 </div>
@@ -64,13 +68,13 @@
         
         <div class="card-single" id="card1">
           <div>
-             <span class="card-title">Alunos em treino</span>
+             <span class="card-title">Treinos completos</span>
           </div>
           <div>
-            
-            <h1 class="card-dado"><%= status_c%> </h1>
+              <h1 class="card-dado"><%= [status] %></h1>
           </div>
         </div>
+    
 
         <div class="card-single" id="card2">
           <div>
@@ -136,7 +140,7 @@
                   <tr>
                     <td><%= treino.nome_treino%></td>
                     <td><%= treino.descricao_treino%></td>
-                    <td><%= treino.id_aluno%></td>
+                    <td><%= treino.nome_aluno%></td>
                     <td>
                       <span class="status <%= treino.status_treino%> "></span>
                       <%= treino.status_treino%>
@@ -210,27 +214,7 @@
       </div>
     </div>
 
-      <div id="teste">
-        <p>teste</p>
-      </div>
-      <div id="botao">
-        <button>teste</button>
-      </div>
-
-      <div id="teste1" style="display: none;">
-        <p>teste1</p>
-      </div>
-      <div id="botao1" style="display: none;">
-        <button>teste1</button>
-      </div>
-
       
-      <div id="teste2" style="display: none;">
-        <p>teste2</p>
-      </div>
-      <div id="botao2" style="display: none;">
-        <button>teste2</button>
-      </div>
       
     </main>
   </div>

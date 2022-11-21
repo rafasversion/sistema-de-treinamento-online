@@ -9,7 +9,6 @@
     integrity="sha384-0evHe/X+R7YkIZDRvuzKMRqM+OrBnVFBL6DOitfPri4tjfHxaWutUpFmBp4vmVor" crossorigin="anonymous">
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
   <link rel="stylesheet" href="css/login.css">
-  <link rel="shortcut icon" href="/img/logo.png">
   <title>Login</title>
 </head>
 
@@ -30,8 +29,6 @@
     <ul class="nav-list">
       <li><a href="/">Home</a></li>
       <li><a href="#">Sobre</a></li>
-  
-        <li><a href="/registro"><span class="fa fa-pencil"></span> Registrar</a></li>
     
     </ul>
   </nav>
@@ -47,16 +44,16 @@
         <form onsubmit="return false;" id="form">
 
 
-          <h5 class="card-title"><strong>Login</strong></h5>
+          <h5 class="card-title"><strong>Login Personal Trainer</strong></h5>
           <p class="card-text">Insira os seus dados para acessar sua conta</p>
            <div class="mb-3">
-            <label for="email_aluno" class="control-label">E-mail:</label>
-            <input type="email" class="form-control" id="email_aluno" autocomplete="off" placeholder="exemplo@exemplo.com" required>
+            <label for="email_personal" class="control-label">E-mail:</label>
+            <input type="email" class="form-control" id="email_personal" autocomplete="off" placeholder="exemplo@exemplo.com" required>
 
           </div>
           <div class="mb-3">
-            <label for="senha_aluno" class="control-label">Senha:</label>
-            <input type="password" class="form-control" id="senha_aluno" autocomplete="off" placeholder="******" required>
+            <label for="senha_personal" class="control-label">Senha:</label>
+            <input type="password" class="form-control" id="senha_personal" autocomplete="off" placeholder="******" required>
           </div>
 
           <div class="alert alert-danger" role="alert" id="error" style="display: none;"></div>
@@ -92,7 +89,7 @@
 
 
 </div>
-  <script src="js/login.js"></script>
+  <script src="js/loginadm.js"></script>
 </body>
 
 </html>

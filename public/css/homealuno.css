@@ -285,7 +285,7 @@ main {
   padding: .5rem;
 }
 
-.incompleto {
+.Incompleto {
   background: rgb(243, 96, 96);
   padding: .2rem;
   margin-top: 2.65rem;
@@ -295,7 +295,7 @@ main {
   border-radius: 5px 0px 5px 5px;
 }
 
-.completo {
+.Completo {
   background: rgb(108, 246, 186);
   padding: .2rem;
   margin-top: 2.65rem;
@@ -306,7 +306,9 @@ main {
   border-radius: 5px 0px 5px 5px;
 }
 
-
+.post {
+  min-width: 500px;
+}
 .cards-avisos::-webkit-scrollbar {
   width: 0;
 }
@@ -314,10 +316,19 @@ main {
 .header-aviso {
   display: flex;
   flex-direction: row;
-  justify-content: space-between;
   color: grey;
   font-size: 25px;
   font-family: sans-serif;
+  min-width: 2rem;
+  justify-content: space-between;
+}
+
+.button-avisos {
+  font-size: 15px;
+  max-width: 800px;
+  display: flex;
+  flex-direction: row;
+  gap: .3rem;
 }
 
 .card-aviso {

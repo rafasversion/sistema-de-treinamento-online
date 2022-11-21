@@ -7,6 +7,7 @@
   <title>Dashboard</title>
   <link rel="stylesheet" href="https://maxst.icons8.com/vue-static/landings/line-awesome/line-awesome/1.3.0/css/line-awesome.min.css">
   <link href="/css/alunoinfo.css" rel="stylesheet" type="text/css" />
+  <link rel="shortcut icon" href="/img/logo.png">
 </head>
 
 <body>
@@ -24,13 +25,18 @@
         <span> Gerenciar Alunos</span></a>
     </li>
        <li>
-        <a href="/dashboard/ferramentas" class="order" id="fer"><span class="las la-igloo"></span>
+        <a href="/dashboard/ferramentas" class="order" id="fer"><span class="las la-tools"></span>
         <span> Ferramentas</span></a>
     </li>
-       <li>
-        <a href="/" class="order"><span class="las la-igloo"></span>
+    <li>
+        <a href="/" class="order"><span class="las la-bell"></span>
         <span> Notificações</span></a>
     </li>
+    <li>
+      <a href="/logoutadm" class="order" style="color: red; opacity: 100%"><span class="las la-arrow-alt-circle-left"></span>
+      <span> Sair</span></a>
+    </li>
+
     </ul>
   </div>
 </div>
@@ -85,6 +91,13 @@
          return age;
       }%> 
 
+      <% var cpf = user.cpf_aluno;
+      function formataCPF(cpf){
+        cpf = cpf.replace(/[^\d]/g, "");
+
+        return cpf.replace(/(\d{3})(\d{3})(\d{3})(\d{2})/, "$1.$2.$3-$4")
+      }
+      %>
       <div class="principal-aluno">
 
           <div class="card-principal">
@@ -98,7 +111,7 @@
 
            
             <p class="dados-gerais">E-mail: <%= user.email_aluno%></p>
-            <p class="dados-gerais">CPF: <%= user.cpf_aluno%></p>
+            <p class="dados-gerais">CPF: <%= formataCPF(cpf)%></p>
             <p class="dados-gerais">Data de nascimento: <%=  dataform%> </p>
             <p class="dados-gerais">Idade: <%= getAge(data)%> anos</p>
             <p class="dados-gerais">Sexo: <%= user.sexo_aluno%></p>
@@ -132,8 +145,8 @@
 
            <div class="coluna-tres">
             <p class="dados-gerais-anamnese">Horas de sono: <%= anamnese.horas_sono%></p>
-            <p class="dados-gerais-anamnese">Período mestrual: <%= anamnese.período_menstrual%></p>
-            <p class="dados-gerais-anamnese">Objetivo do aluno: <%= anamnese.horas_sono%></p>
+            <p class="dados-gerais-anamnese">Período mestrual: <%= anamnese.periodo_menstruacao%></p>
+            <p class="dados-gerais-anamnese">Objetivo do aluno: <%= anamnese.objetivo%></p>
             </div>
 
            
@@ -146,13 +159,12 @@
            <div class="coluna-tres">
            <p class="dados-gerais-anamnese">Frequência de Exercícios: <%= anamnese.historico_exercicio_frequencia%></p>
            <p class="dados-gerais-anamnese">Tempo de exercícios: <%= anamnese.historico_exercicio_tempo%></p>
-           <p class="dados-gerais-anamnese">Frequência cardíaca: <%= anamnese.frequencia_cardiaca%></p>
+           <p class="dados-gerais-anamnese">Frequência cardíaca: <%= anamnese.frequencia_cardiaca_repouso%></p>
            </div>
 
            <div class="coluna-tres">
-            <p class="dados-gerais-anamnese">Suplementos alimentares: <%= anamnese.uso_suplementar_alimentar%></p>
-            <p class="dados-gerais-anamnese">Medicamentos: <%= anamnese.medicamento%></p>
-            <p class="dados-gerais-anamnese">Comorbidades: <%= anamnese.comorbidades%></p>
+            <p class="dados-gerais-anamnese">Suplementos alimentares: <%= anamnese.uso_suplemento_alimentar%></p>
+            <p class="dados-gerais-anamnese">Medicamentos: <%= anamnese.uso_medicacao%></p>
             <p class="dados-gerais-anamnese">Patologia: <%= anamnese.patologia%></p>
             </div>
  
@@ -160,8 +172,26 @@
            </div>
          </div>
        </div>
-<% } %> 
-      
+<% } else {%>
+ 
+  <div class="anamnese">
+    <h3 class="titulo-dados-anamese">Anamnese:</h3>
+
+
+  <div class="colunas-anamnese">
+   <div class="subcolunas-anamnese">
+
+     <div class="coluna-um">
+      <p>Aluno ainda não possui anamnese</p>
+      </div>
+
+      <div class="coluna-dois">
+        <button class="btn-aviso">Enviar aviso</button>
+      </div>
+      </div>
+      </div>
+      </div>
+      <% } %> 
     </main>
   </div>
   
