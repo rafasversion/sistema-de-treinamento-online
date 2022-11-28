@@ -27,7 +27,7 @@ db.query("SELECT * FROM aluno", (err, result) => {
 
         db.query("SELECT COUNT(id_treino) AS id_treinocount FROM treino", (error, resultados) => {
 
-          db.query("SELECT COUNT(status_treino) FROM treino WHERE status_treino =  'Incompleto'", (error, status) => {
+          db.query("SELECT COUNT(status_treino) FROM treino WHERE status_treino =  'Completo'", (error, status) => {
 
       req.treino = resultados[0];
 

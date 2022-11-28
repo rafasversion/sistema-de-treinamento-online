@@ -81,86 +81,65 @@
 
           <form class="enviartreino" id="form">
 
-            <div class="titulo-dados">
-              <h3>Novo Treino</h3>
-            </div>
-
-
-
-            <div class="form-item" style="display: none;">
-              <input type="text" id="id_aluno" value="<%= aluno.id_aluno%>">
-            </div>
-            <div class="group_1" style="display: flex; flex-direction:row;">
-              <div class="form-item" style="width: 30%;">
-                <label for="tipo_treino">Tipo de treino:</label>
-                <select id="tipo_treino">
-                  <option selected value="" disabled>Selecione...</option>
-                  <option>1</option>
-                  <option>2</option>
-                  <option>3</option>
-                </select>
-              </div>
-
-              <div class="form-item" style="width: 30%;">
-                <label for="nivel_treino">Nível do treino:</label>
-                <input type="text" id="nivel_treino" placeholder="Coloque o nível">
-              </div>
-
-              <!-- <div class="form-item" style="width: 30%;">
-              <label for="data_fim_treino">Data de encerramento:</label>
-                <input type="date" id="data_fim_treino">
+            <div class="titulo-dados" style="display: flex; flex-direction: row; gap: 7rem; margin-bottom: .5rem; margin-top: .5rem;">
+              <h3>Tabela de exercícios do treino <%= treino.nome_treino%></h3>
               
-            </div> -->
-
-
-
-              <div class="form-item" style="width: 30%;">
-                <label for="nome_treino">Título/Nome do treino:</label>
-                <input type="text" id="nome_treino" placeholder="Coloque um titulo">
-              </div>
             </div>
+            <div class="group" id="exercicios" style="display: flex;flex-direction:column; gap: 1rem; margin-bottom: 2rem; border: 2px solid #0839B9; padding: 1rem; border-radius: 5px;">
+              <div class="group_1" style="display: flex; flex-direction:row; gap: 1rem;">
+                <div class="form-item" style="width: 30%;">
+                  <label for="nome_exercico">Exercício:</label>
+                  <input type="text" name="nome_exercicio" id="nome_exercicio1"
+                    placeholder="Coloque o nome do exercício">
+                </div>
 
-            <div class="group_1" style="display: flex; flex-direction:row;">
-              <div class="form-item" style="width: 30%;">
-                <label for="descricao_treino">Descrição:</label>
-                <textarea id="descricao_treino"></textarea>
+                <div class="form-item" style="width: 30%;">
+                  <label for="recursos_treino">Recursos:</label>
+                  <input type="text" name="recursos_exercicio" id="recursos_exercicio1"
+                    placeholder="Coloque os recursos">
+                </div>
+
+                <div class="form-item" style="width: 30%;">
+                  <label for="sessoes_treino">Séries:</label>
+                  <input type="text" name="series_exercicio" id="series_exercicio1"
+                    placeholder="Coloque as séries">
+                </div>
+
+                <div class="form-item" style="width: 30%;">
+                  <label for="repeticoes1_treino">Repetições:</label>
+                  <input type="text" name="repeticoes_exercicio" id="repeticoes_exercicio1"
+                    placeholder="Coloque as repetições">
+                </div>
+
               </div>
 
-              <div class="form-item" style="width: 30%;">
-                <label for="objetivo_treino">Objetivo:</label>
-                <input type="text" id="objetivo_treino" placeholder="Coloque o objetivo do treino">
-              </div>
+              <div class="group_1.2" style="display: flex; flex-direction:row; gap: 1rem;">
+                <div class="form-item" style="width: 30%;">
+                  <label for="intervalo_exercicio">Intervalo:</label>
+                  <input type="text" name="intervalo_exercicio" id="intervalo_exercicio1"
+                    placeholder="Coloque o intervalo">
+                </div>
 
-              <div class="form-item" style="width: 30%;">
-                <label for="dias_treino">Dias da semana:</label>
-                <input type="text" id="dias_treino" placeholder="Coloque os dias">
-              </div>
+                <div class="form-item" style="width: 30%;">
+                  <label for="observacao_exercicio">Observação:</label>
+                  <input type="text" name="observacao_exercicio" id="observacao_exercicio1"
+                    placeholder="Coloque uma observação">
+                </div>
+
+                <div class="form-item" style="width: 30%;">
+                  <label for="video_exercicio">Link do vídeo:</label>
+                  <input type="text" name="video_exercicio" id="video_exercicio1"
+                    placeholder="Coloque o vídeo">
+                </div>
+                <button class="mais_exercicio" type="submit">Adicionar
+                  exercício ao treino</button>
+
+                  
+              </div>              
 
 
-
+              
             </div>
-
-            <div class="group_1" style="display: flex; flex-direction:row;">
-              <div class="form-item" style="width: 30%;">
-                <label for="observacao_treino">Observação:</label>
-                <input type="text" id="observacao_treino" placeholder="Adicione uma observação">
-              </div>
-
-              <div class="form-item" style="width: 30%;">
-                <label for="duracao_treino">Período:</label>
-                <input type="text" id="duracao_treino" placeholder="Coloque o período">
-              </div>
-
-              <div class="form-item" style="width: 30%;">
-                <label for="frequencia_treino">Frequência:</label>
-                <input type="text" id="frequencia_treino" placeholder="Frequência em que devem ser realizados">
-              </div>
-
-            </div>
-
-  
-
-            <!-- grupo de botoes -->
 
 
 
@@ -169,9 +148,58 @@
             <div class="mensagem-erro" id="error" style="display: none;"></div>
             <div class="mensagem-sucesso" id="success" style="display: none;"></div>
 
-            <button type="submit" class="enviar">Enviar</button>
-
           </form>
+         <div class="testes">
+            <table class="post-table">
+              <thead>
+              <tr class="cabecalho-table">
+                <th>Exercício</th>
+                <th>Recursos</th>
+                <th>Séries</th>
+                <th>Repetições</th>
+                <th>Intervalo</th>
+                <th>Observação</th>
+                  
+                  <th class="acoes">Ação</th>
+              </tr>
+              </thead>
+
+              <tbody>
+                <% exercicios.forEach(exercicio => { %>
+               
+              <tr>
+                  
+                <td>
+                  <%= exercicio.nome_exercicio%>
+                </td>
+                <td>
+                  <%= exercicio.recursos_exercicio%>
+                </td>
+                <td>
+                  <%= exercicio.series_exercicio%>
+                </td>
+                <td>
+                  <%= exercicio.repeticoes_exercicio%>
+                </td>
+                <td>
+                  <%= exercicio.intervalo_exercicio%>
+                </td>
+                <td>
+                  <%= exercicio.observacao_exercicio%>
+                </td>
+                  <td class="action">
+                      <button class="editar-post">Editar</button>
+                      <a href=""><button class="deletar-post">Excluir</button></a>
+
+                  </td>
+                  
+              </tr>
+              <% }) %> 
+              </tbody>
+          </table>
+        </div>
+
+            
         </div>
       </div>
 
@@ -241,7 +269,7 @@
     </main>
   </div>
 
-  <script src="/js/novotreino.js"></script>
+  <script src="/js/exercicios.js"></script>
 
 </body>
 

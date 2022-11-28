@@ -13,7 +13,13 @@ const register = require("../controllers/register")
 const listtreino = require("../controllers/listartreinos")
 const treinoaluno = require("../controllers/treinoaluno")
 const loggedinadm = require("../controllers/loggedinadm")
-const logoutadm = require("../controllers/logoutadm")
+const logoutadm = require("../controllers/logoutadm");
+const adcexercicios = require("../controllers/exercicios");
+const listexer = require("../controllers/listexer");
+const concluirtreino = require("../controllers/concluirtreino");
+const postsaluno = require("../controllers/postagensaluno");
+const listpostsedit = require("../controllers/listpostedit");
+const userinfo = require("../controllers/userinfos");
 
 
 router.get("/", loggedin, (req, res) => {
@@ -65,7 +71,7 @@ router.get("/aluno/treinos", loggedin, (req, res) => {
     }
 })
 
-router.get("/aluno/postagens", loggedin, (req, res) => {
+router.get("/aluno/postagens", postsaluno, (req, res) => {
     if (req.user){
         res.render("pages/postagens", {status: "loggedin", user:req.user}); 
     } else {
@@ -76,14 +82,6 @@ router.get("/aluno/postagens", loggedin, (req, res) => {
 
 
 router.get("/cadastrado", register)
-
-router.get("/posts", loggedin, (req, res) => {
-    if (req.user){
-        res.render("pages/postagens", {status: "loggedin", user:req.user}); 
-    } else {
-        res.render("pages/postagens", {status: "no", user:"nothing"});
-    }
-})
 
 router.get("/login", loggedin, (req, res) => {
     if (req.user){
@@ -116,7 +114,7 @@ router.get("/aluno/home", listtreino, (req, res) => {
 })
 
 router.get("/aluno/treino", treinoaluno, (req, res) => {
-    res.render("pages/treino", { results, user:req.user, anamnese:req.anamnese}); 
+    res.render("pages/treino", { results, user:req.user, anamnese:req.anamnese, exercicios }); 
       
   }) 
 
@@ -146,6 +144,10 @@ router.get("/dashboard/ferramentas", listposts, (req, res) => {
     res.render("pages/ferramentas", {result})
 })
 
+router.get("/dashboard/postagens/editar/:id_post", listpostsedit, (req, res) => {
+    res.render("pages/editpost", {post:req.post})
+})
+
 router.get("/viewuser/:id", viewuser, (req, res) =>{
   //  res.render("viewuser", {result: result[0]})
 });
@@ -154,11 +156,18 @@ router.get("/dashboard/aluno/:id_aluno", viewuser, (req, res) =>{
     // res.render("alunoinfo", {result: result[0]})
   });
 
-router.get("/dashboard/aluno/novotreino/:id_aluno", novotreino, (req, res) =>{
-        res.render("pages/novotreino", { anamnese:req.anamnese}); 
+router.get("/dashboard/aluno/editar/:id_aluno", userinfo, (req, res) =>{
+    // res.render("alunoinfo", {result: result[0]})
   });
 
+router.get("/dashboard/aluno/novotreino/:id_aluno", novotreino, (req, res) =>{
+        res.render("pages/novotreino", { aluno: req.aluno, anamnese:req.anamnese}); 
+        
+  });
 
+  router.get("/dashboard/aluno/novotreino/exercicios/:id_aluno", listexer, (req, res) =>{
+    res.render("pages/exercicios", { aluno: req.aluno, anamnese:req.anamnese, treino:req.treino, exercicios}); 
+});
 
 router.get("/user", loggedin, (req, res) => {
     if (req.user){
@@ -170,7 +179,7 @@ router.get("/user", loggedin, (req, res) => {
 
 router.get("/deletarpost/:id_post", delpost)
 router.get("/deletaraluno/:id_aluno", delaluno)
-
+router.get("/concluirtreino/:id_treino", concluirtreino)
 router.get("/logout", logout)
 router.get("/logoutadm", logoutadm)
 

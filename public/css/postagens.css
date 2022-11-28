@@ -248,15 +248,16 @@ main {
 
 .cards-treinos {
     display: flex;
-    flex-direction: column;
+    flex-direction: row;
+    flex-wrap: wrap;
     gap: 3rem;
 }
 
 
 .card-treino {
     background: #fff;
-    height: 540px;
-    width: 900px;
+    height: 160px;
+    width: 400px;
     border-radius: 10px;
     border: none;
     font-family: sans-serif;
@@ -264,18 +265,6 @@ main {
     margin-top: 3rem;
 }
 
-.btn_con {
-    background-color: rgb(165, 245, 165);
-    color: green;
-    border: none;
-    width: 150px;
-    height: 55px;
-    border-radius: 5px;
-    float: right;
-    font-size: medium;
-    font-family: sans-serif;
-    font-weight: bold;
-}
 
 .header-treino {
     display: flex;
@@ -284,50 +273,16 @@ main {
     color: grey;
     font-size: 20px;
     font-family: sans-serif;
+    border-bottom: grey 0.3px solid;
+    box-shadow: 0px 2px 3px rgba(0, 0, 0, 0.2);
+    padding: 1rem;
 }
-
 
 .card-conteudo {
     padding: .8rem;
     display: flex;
     flex-direction: column;
     justify-content: space-between;
-}
-
-.card-conteudo-principal {
-    display: flex;
-    flex-direction: row;
-    justify-content: space-between;
-    margin-bottom: 2rem;
-}
-
-
-.card-conteudo-text {
-    display: flex;
-    flex-direction: column;
-    gap: .8rem;
-}
-
-.Incompleto {
-    padding: 0.8rem;
-    background: rgb(243, 96, 96);
-    color: #fff;
-    border-radius: 10px 10px 0px 0px;
-}
-
-.Completo {
-    background: rgb(2, 211, 120);
-    color: #fff;
-    border-radius: 10px 10px 0px 0px;
-    padding: 0.8rem;
-}
-
-.item_Completo {
-    color:rgb(2, 211, 120);
-}
-
-.item_Incompleto {
-    color: rgb(243, 96, 96);
 }
 
 .data {

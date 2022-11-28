@@ -1,7 +1,7 @@
 const db = require("../routes/config_db");
 const jwt = require("jsonwebtoken");
 
-const viewuser = async (req, res) => {
+const userinfo = async (req, res) => {
   let id_aluno = req.params.id_aluno;
   
   db.query(`SELECT * FROM aluno WHERE id_aluno = ${id_aluno}`, (err, result) => {
@@ -13,7 +13,7 @@ const viewuser = async (req, res) => {
     if (!err) {
      req.anamnese = resultes[0];
      req.user = result[0];
-     res.render('pages/alunoinfo', { user:req.user, anamnese:req.anamnese });
+     res.render('pages/editaluno', { user:req.user, anamnese:req.anamnese });
      console.log(result[0]);
      
     } else {
@@ -25,4 +25,4 @@ const viewuser = async (req, res) => {
 })
 }
 
-module.exports = viewuser;
+module.exports = userinfo;

@@ -70,14 +70,14 @@
 
         <div class="buttons">
           
-          <button class="editar">Editar</button>
+          <a href="/dashboard/aluno/editar/<%= user.id_aluno%>"><button class="editar">Editar</button></a>
           <a href="/deletaraluno/<%= user.id_aluno%>"><button class="excluir">Excluir</button></a>
         </div>
         
       </div>
 
-      <% let data = user.data_nasc_aluno
-         let dataform = ((data.getDate() )) + "/" + ((data.getMonth() + 1)) + "/" + data.getFullYear(); %>
+      <% let data = user.data_nasc_aluno 
+      let dataform = ((data.getDate() )) + "/" + ((data.getMonth() + 1)) + "/" + data.getFullYear(); %>
 
       <% function getAge(dateString) {
          const today = new Date();

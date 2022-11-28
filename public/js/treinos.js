@@ -1,6 +1,6 @@
-var modal = document.getElementById("myModal");
-var btn = document.getElementById("myBtn");
-var span = document.getElementById("close");
+var modal = document.getElementsByClassName("modal");
+var btn = document.getElementsByClassName("ver-video");
+var span = document.getElementsByClassName("close");
 
 btn.onclick = function() {
     modal.style.display = "block";

@@ -134,9 +134,11 @@
                     <thead>
                     <tr class="cabecalho-table">
                         <th>Titulo</th>
-                        <th>Descrição</th>
                         <th>Tipo</th>
-                        <th class="acoes">Ação</th>
+                        <th>Descrição</th>
+                        <th>Link</th>
+                        
+                        <th class="acoes">Ações</th>
                     </tr>
                     </thead>
 
@@ -146,11 +148,128 @@
                     <tr>
                         
                         <td><%= post.titulo_post%></td>
-                        <td><%= post.descricao_post%></td> 
                         <td><%= post.tipo_post%></td>
+                        <td><%= post.descricao_post%></td> 
+                        <td><%= post.link_post%></td>
                         <td class="action">
+                            <a href="/dashboard/postagens/editar/<%= post.id_post%>"><button class="editar-post">Editar</button></a>
                             <a href="/deletarpost/<%= post.id_post%>"><button class="deletar-post">Excluir</button></a>
+
+                        </td>
+                        
+                    </tr>
+                    <% }) %> 
+                    </tbody>
+                </table>
+               
+                </div>
+            </div>
+
+            <div class="posts-config">
+                <div class="header-post-config">
+                    <h3 class="post-title-config"><span class="fa fa-gear"></span> Configurações</h3>
+                </div>
+
+                <div class="treinos">
+
+                    <% results.forEach(treino => { %>
+                    <div class="treino">
+                        <div class="header-treino" style="display: flex; justify-content: space-between">
+                            <p>Nome: <%= treino.nome_treino%></p>
+                            <p>Status: <%= treino.status_treino%></p>
+                            <div class="buttons">
                             <button class="editar-post">Editar</button>
+                            <a href=""><button class="deletar-post">Excluir</button></a>
+                            </div>
+                        </div>
+                        <div class="body-treino">
+                            <p>Tipo: <%= treino.tipo_treino%></p>
+                            <p>Descrição: <%= treino.descricao_treino%></p>
+                            <p>Objetivo: <%= treino.objetivo_treino%></p>
+                            <p>Frequência: <%= treino.frequencia_treino%></p>
+                            <p>Dias: <%= treino.dias_treino%></p>
+                            <p>Observação: <%= treino.observacao_treino%></p>
+                        </div>
+
+                        <div class="testes">
+                            <table class="post-table">
+                              <thead>
+                              <tr class="cabecalho-table">
+                                <th>Exercício</th>
+                                <th>Recursos</th>
+                                <th>Séries</th>
+                                <th>Repetições</th>
+                                <th>Intervalo</th>
+                                <th>Observação</th>
+                                  
+                                  <th class="acoes">Ação</th>
+                              </tr>
+                              </thead>
+                
+                              <tbody>
+                                <% exercicios.forEach(exercicio => { %>
+                               
+                              <tr>
+                                  
+                                <td>
+                                  <%= exercicio.nome_exercicio%>
+                                </td>
+                                <td>
+                                  <%= exercicio.recursos_exercicio%>
+                                </td>
+                                <td>
+                                  <%= exercicio.series_exercicio%>
+                                </td>
+                                <td>
+                                  <%= exercicio.repeticoes_exercicio%>
+                                </td>
+                                <td>
+                                  <%= exercicio.intervalo_exercicio%>
+                                </td>
+                                <td>
+                                  <%= exercicio.observacao_exercicio%>
+                                </td>
+                                  <td class="action">
+                                      <a href=""><button class="editar-post">Editar</button></a>
+                                      <a href=""><button class="deletar-post">Excluir</button></a>
+                
+                                  </td>
+                                  
+                              </tr>
+                              <% }) %> 
+                              </tbody>
+                          </table>
+                        </div>
+                        
+                    </div>
+                    <% }) %> 
+
+                </div>
+                
+                <div class="testes">
+                <table class="post-table">
+                    <thead>
+                    <tr class="cabecalho-table">
+                        <th>Nome</th>
+                        <th>Tipo</th>
+                        <th>Descrição</th>
+                        
+                        <th class="acoes">Ação</th>
+                    </tr>
+                    </thead>
+
+                    <tbody>
+
+                        <% results.forEach(exer => { %>
+                    <tr>
+                        
+                        <td><%= exer.nome_treino%></td>
+                        <td><%= exer.tipo_treino%> </td>
+                        <td><%= exer.descricao_treino%></td> 
+                        
+                        <td class="action">
+                            <button class="editar-post">Editar</button>
+                            <a><button class="deletar-post">Excluir</button></a>
                         </td>
                         
                     </tr>

@@ -101,14 +101,14 @@
                     <div class="card-conteudo-principal" style="display: flex; flex-direction:row; justify-content: space-between;">
                     <div class="card-conteudo-text"  style="display: flex; flex-direction:row; gap: 20rem;">
                     <div class="text_1" style="display: flex;flex-direction:column; gap: 1rem;">
-                    <p><span style="color:rgb(243, 96, 96);"><strong>Descrição:</strong></span> <%= treinos.descricao_treino%></p>
-                    <p><span style="color:rgb(243, 96, 96);"><strong>Tipo:</strong></span> <%= treinos.tipo_treino%></p>
-                    <p><span style="color:rgb(243, 96, 96);"><strong>Nível:</strong></span> <%= treinos.nivel_treino%></p>
+                    <p><span class="item_<%= treinos.status_treino%>"><strong>Descrição:</strong></span> <%= treinos.descricao_treino%></p>
+                    <p><span class="item_<%= treinos.status_treino%>"><strong>Tipo:</strong></span> <%= treinos.tipo_treino%></p>
+                    <p><span class="item_<%= treinos.status_treino%>"><strong>Nível:</strong></span> <%= treinos.nivel_treino%></p>
                     </div>
                     <div class="text_2" style="display: flex;flex-direction:column; gap: 1rem;">
-                    <p><span style="color:rgb(243, 96, 96);"><strong>Objetivo:</strong></span> <%= treinos.objetivo_treino%></p>
-                    <p><span style="color:rgb(243, 96, 96);"><strong>Dias:</strong></span> <%= treinos.dias_treino%></p>
-                    <p><span style="color:rgb(243, 96, 96);"><strong>Observação:</strong></span> <%= treinos.observacao_treino%></p>
+                    <p><span class="item_<%= treinos.status_treino%>"><strong>Objetivo:</strong></span> <%= treinos.objetivo_treino%></p>
+                    <p><span class="item_<%= treinos.status_treino%>"><strong>Dias:</strong></span> <%= treinos.dias_treino%></p>
+                    <p><span class="item_<%= treinos.status_treino%>"><strong>Observação:</strong></span> <%= treinos.observacao_treino%></p>
                   </div>
                   </div>
                   
@@ -129,382 +129,50 @@
     </thead>
 
     <tbody>
-
+      <% exercicios.forEach(exercicio => { %>
       <tr>
 
         <td>
-          <%= treinos.exercicio1_treino%>
+          <%= exercicio.nome_exercicio%>
         </td>
         <td>
-          <%= treinos.recursos1_treino%>
+          <%= exercicio.recursos_exercicio%>
         </td>
         <td>
-          <%= treinos.sessoes1_treino%>
+          <%= exercicio.series_exercicio%>
         </td>
         <td>
-          <%= treinos.repeticoes1_treino%>
+          <%= exercicio.repeticoes_exercicio%>
         </td>
         <td>
-          <%= treinos.intervalo1_treino%>
+          <%= exercicio.intervalo_exercicio%>
         </td>
         <td>
-          <%= treinos.observacao1_treino%>
+          <%= exercicio.observacao_exercicio%>
         </td>
         <td>
-          <button class="ver-video" id="myBtn">Assistir</button>
-          <div class="modal" id="myModal">
-            <div class="modal-content">
-            
-              <p id="close"><span>&times;</span></p>
-              <div id="player"></div>
+          <!-- <iframe width="420" height="315" src="https://www.youtube.com/embed/" allow="acelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe> -->
+
+          <a href="https://youtu.be/<%= exercicio.video_exercicio%>" target="_blank"><button class="ver-video" style=" border-radius: 5px;">Assistir</button></a>
+        
+              
+             
             </div>
             </div>
           
-            <script>
-
-              function youtube_parser(url) {
-                var regExp = /^.*((youtu.be\/)|(v\/)|(\/u\/\w\/)|(embed\/)|(watch\?))\??v?=?([^#&?]*).*/;
-                var match = url.match(regExp);
-                return (match && match[7].length == 11) ? match[7] : false;
-              }
-
-              var tag = document.createElement('script');
-              tag.src = "https://www.youtube.com/iframe_api";
-              var firstScriptTag = document.getElementsByTagName('script')[0];
-              firstScriptTag.parentNode.insertBefore(tag, firstScriptTag);
-
-              // 3. This function creates an <iframe> (and YouTube player)
-              //    after the API code downloads.
-              var player;
-              function onYouTubeIframeAPIReady() {
-                player = new YT.Player('player', {
-                  height: '208,125',
-                  width: '370',
-                  videoId: youtube_parser('<%= treinos.video1_treino %>'),
-                  events: {
-                    'onReady': onPlayerReady,
-                    'onStateChange': onPlayerStateChange
-                  }
-                });
-              }
-
-              // 4. The API will call this function when the video player is ready.
-              function onPlayerReady(event) {
-                event.target.playVideo();
-              }
-
-              // 5. The API calls this function when the player's state changes.
-              //    The function indicates that when playing a video (state=1),
-              //    the player should play for six seconds and then stop.
-              var done = false;
-              function onPlayerStateChange(event) {
-                if (event.data == YT.PlayerState.PLAYING && !done) {
-                  setTimeout(stopVideo, 6000);
-                  done = true;
-                }
-              }
-              function stopVideo() {
-                player.stopVideo();
-              }
-            </script>
+          
         </td>
         </tr>
-
-        <% if(treinos.exercicio2_treino) {%> 
-        <tr>
-          <td>
-            <%= treinos.exercicio2_treino%>
-          </td>
-          <td>
-            <%= treinos.recursos2_treino%>
-          </td>
-          <td>
-            <%= treinos.sessoes2_treino%>
-          </td>
-          <td>
-            <%= treinos.repeticoes2_treino%>
-          </td>
-          <td>
-            <%= treinos.intervalo2_treino%>
-          </td>
-          <td>
-            <%= treinos.observacao2_treino%>
-          </td>
-
-          <td>
-            <button class="ver-video" id="myBtn">Assistir</button>
-            <div class="modal" id="myModal">
-              <div class="modal-content">
-              
-                <p id="close"><span>&times;</span></p>
-                <div id="player"></div>
-              </div>
-              </div>
-            
-              <script>
-  
-                function youtube_parser(url) {
-                  var regExp = /^.*((youtu.be\/)|(v\/)|(\/u\/\w\/)|(embed\/)|(watch\?))\??v?=?([^#&?]*).*/;
-                  var match = url.match(regExp);
-                  return (match && match[7].length == 11) ? match[7] : false;
-                }
-  
-                var tag = document.createElement('script');
-                tag.src = "https://www.youtube.com/iframe_api";
-                var firstScriptTag = document.getElementsByTagName('script')[0];
-                firstScriptTag.parentNode.insertBefore(tag, firstScriptTag);
-  
-                // 3. This function creates an <iframe> (and YouTube player)
-                //    after the API code downloads.
-                var player;
-                function onYouTubeIframeAPIReady() {
-                  player = new YT.Player('player', {
-                    height: '208,125',
-                    width: '370',
-                    videoId: youtube_parser('<%= treinos.video2_treino %>'),
-                    events: {
-                      'onReady': onPlayerReady,
-                      'onStateChange': onPlayerStateChange
-                    }
-                  });
-                }
-  
-                // 4. The API will call this function when the video player is ready.
-                function onPlayerReady(event) {
-                  event.target.playVideo();
-                }
-  
-                // 5. The API calls this function when the player's state changes.
-                //    The function indicates that when playing a video (state=1),
-                //    the player should play for six seconds and then stop.
-                var done = false;
-                function onPlayerStateChange(event) {
-                  if (event.data == YT.PlayerState.PLAYING && !done) {
-                    setTimeout(stopVideo, 6000);
-                    done = true;
-                  }
-                }
-                function stopVideo() {
-                  player.stopVideo();
-                }
-              </script>
-          </td>
-        </tr>
-        <% } %> 
-        
-
-        <% if(treinos.exercicio3_treino) {%> 
-        <tr>
-          <td>
-            <%= treinos.exercicio3_treino%>
-          </td>
-          <td>
-            <%= treinos.recursos3_treino%>
-          </td>
-          <td>
-            <%= treinos.sessoes3_treino%>
-          </td>
-          <td>
-            <%= treinos.repeticoes3_treino%>
-          </td>
-          <td>
-            <%= treinos.intervalo3_treino%>
-          </td>
-          <td>
-            <%= treinos.observacao3_treino%>
-          </td>
-
-          <td>
-            <button class="ver-video" id="myBtn">Assistir</button>
-            <div class="modal" id="myModal">
-              <div class="modal-content">
-              
-                <p id="close"><span>&times;</span></p>
-                <div id="player"></div>
-              </div>
-              </div>
-            
-              <script>
-  
-                function youtube_parser(url) {
-                  var regExp = /^.*((youtu.be\/)|(v\/)|(\/u\/\w\/)|(embed\/)|(watch\?))\??v?=?([^#&?]*).*/;
-                  var match = url.match(regExp);
-                  return (match && match[7].length == 11) ? match[7] : false;
-                }
-  
-                var tag = document.createElement('script');
-                tag.src = "https://www.youtube.com/iframe_api";
-                var firstScriptTag = document.getElementsByTagName('script')[0];
-                firstScriptTag.parentNode.insertBefore(tag, firstScriptTag);
-  
-                // 3. This function creates an <iframe> (and YouTube player)
-                //    after the API code downloads.
-                var player;
-                function onYouTubeIframeAPIReady() {
-                  player = new YT.Player('player', {
-                    height: '208,125',
-                    width: '370',
-                    videoId: youtube_parser('<%= treinos.video3_treino %>'),
-                    events: {
-                      'onReady': onPlayerReady,
-                      'onStateChange': onPlayerStateChange
-                    }
-                  });
-                }
-  
-                // 4. The API will call this function when the video player is ready.
-                function onPlayerReady(event) {
-                  event.target.playVideo();
-                }
-  
-                // 5. The API calls this function when the player's state changes.
-                //    The function indicates that when playing a video (state=1),
-                //    the player should play for six seconds and then stop.
-                var done = false;
-                function onPlayerStateChange(event) {
-                  if (event.data == YT.PlayerState.PLAYING && !done) {
-                    setTimeout(stopVideo, 6000);
-                    done = true;
-                  }
-                }
-                function stopVideo() {
-                  player.stopVideo();
-                }
-              </script>
-          </td>
-        </tr>
-        <% } %> 
-
-        <% if(treinos.exercicio4_treino) {%> 
-        <tr>
-          <td>
-            <%= treinos.exercicio4_treino%>
-          </td>
-          <td>
-            <%= treinos.recursos4_treino%>
-          </td>
-          <td>
-            <%= treinos.sessoes4_treino%>
-          </td>
-        </tr>
-        <% } %> 
-
-        <% if(treinos.exercicio5_treino) {%> 
-        <tr>
-          <td>
-            <%= treinos.exercicio5_treino%>
-          </td>
-          <td>
-            <%= treinos.recursos5_treino%>
-          </td>
-          <td>
-            <%= treinos.sessoes5_treino%>
-          </td>
-        </tr>
-        <% } %> 
-
-        <% if(treinos.exercicio6_treino) {%> 
-          <tr>
-            <td>
-              <%= treinos.exercicio6_treino%>
-            </td>
-            <td>
-              <%= treinos.recursos6_treino%>
-            </td>
-            <td>
-              <%= treinos.sessoes6_treino%>
-            </td>
-          </tr>
-          <% } %> 
-
-          <% if(treinos.exercicio7_treino) {%> 
-            <tr>
-              <td>
-                <%= treinos.exercicio7_treino%>
-              </td>
-              <td>
-                <%= treinos.recursos7_treino%>
-              </td>
-              <td>
-                <%= treinos.sessoes7_treino%>
-              </td>
-            </tr>
-            <% } %> 
-
-            <% if(treinos.exercicio8_treino) {%> 
-              <tr>
-                <td>
-                  <%= treinos.exercicio8_treino%>
-                </td>
-                <td>
-                  <%= treinos.recursos8_treino%>
-                </td>
-                <td>
-                  <%= treinos.sessoes8_treino%>
-                </td>
-              </tr>
-              <% } %> 
-
-              <% if(treinos.exercicio9_treino) {%> 
-                <tr>
-                  <td>
-                    <%= treinos.exercicio9_treino%>
-                  </td>
-                  <td>
-                    <%= treinos.recursos9_treino%>
-                  </td>
-                  <td>
-                    <%= treinos.sessoes9_treino%>
-                  </td>
-                </tr>
-                <% } %> 
-
-                <% if(treinos.exercicio10_treino) {%> 
-                  <tr>
-                    <td>
-                      <%= treinos.exercicio10_treino%>
-                    </td>
-                    <td>
-                      <%= treinos.recursos10_treino%>
-                    </td>
-                    <td>
-                      <%= treinos.sessoes10_treino%>
-                    </td>
-                  </tr>
-                  <% } %> 
-
-                  <% if(treinos.exercicio11_treino) {%> 
-                    <tr>
-                      <td>
-                        <%= treinos.exercicio11_treino%>
-                      </td>
-                      <td>
-                        <%= treinos.recursos11_treino%>
-                      </td>
-                      <td>
-                        <%= treinos.sessoes11_treino%>
-                      </td>
-                    </tr>
-                    <% } %> 
-
-                    <% if(treinos.exercicio12_treino) {%> 
-                      <tr>
-                        <td>
-                          <%= treinos.exercicio12_treino%>
-                        </td>
-                        <td>
-                          <%= treinos.recursos12_treino%>
-                        </td>
-                        <td>
-                          <%= treinos.sessoes12_treino%>
-                        </td>
-                      </tr>
-                      <% } %> 
-      </tr>
+<% }) %> 
+     
     </tbody>
   </table>
 
-  <button class="btn_con">Concluído</button>
+  <%if (treinos.status_treino === 'Incompleto') {%>
+
+  <a href="/concluirtreino/<%= treinos.id_treino%>"><button class="btn_con" style="margin-top: 1rem;">Concluído</button></a>
+
+    <%}%>
 </div>
                     
                   </div>
