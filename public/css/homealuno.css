@@ -256,15 +256,28 @@ main {
   width: 0;
 }
 
-.header-treino {
+.header-treino, .header-aviso {
   display: flex;
   flex-direction: row;
-  justify-content: space-between;
+  gap: 2rem;
   color: grey;
   font-size: 25px;
   font-family: sans-serif;
   margin-top: 3rem;
+  margin-bottom: 1rem;
 }
+
+.header-treino button, .header-aviso button {
+  border-radius: 5px;
+  height: 25px;
+  width: 90px;
+  color: #1D2231;
+}
+
+.header-treino button:hover, .header-aviso button:hover {
+  background: #d7d8d8;
+}
+
 
 .card-treino-completo, .card-treino-incompleto {
   min-width: 220px;
@@ -320,7 +333,7 @@ main {
   font-size: 25px;
   font-family: sans-serif;
   min-width: 2rem;
-  justify-content: space-between;
+  gap: 2rem;
 }
 
 .button-avisos {

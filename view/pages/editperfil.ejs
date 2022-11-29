@@ -4,7 +4,7 @@
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <title>Dashboard</title>
+  <title>Editar Perfil</title>
   <link rel="stylesheet" href="https://maxst.icons8.com/vue-static/landings/line-awesome/line-awesome/1.3.0/css/line-awesome.min.css">
   <link href="/css/editaluno.css" rel="stylesheet" type="text/css" />
   <link rel="shortcut icon" href="/img/logo.png">
@@ -18,25 +18,33 @@
     <img class="logo" src="/img/logo_2.png"></h2>
   </div>
 
+  
   <div class="sidebar-menu">
     <ul>
-      <li>
-        <a href="/dashboard" class="active"><span class="las la-users"></span>
-        <span> Gerenciar Alunos</span></a>
-    </li>
-       <li>
-        <a href="/dashboard/ferramentas" class="order" id="fer"><span class="las la-tools"></span>
-        <span> Ferramentas</span></a>
-    </li>
+    
     <li>
-        <a href="/" class="order"><span class="las la-bell"></span>
-        <span> Notificações</span></a>
+        <a href="/aluno/home" class="order"><span class="las la-home"></span>
+        <span> Página Inicial</span></a>
     </li>
+    
     <li>
-      <a href="/logoutadm" class="order" style="color: red; opacity: 100%"><span class="las la-arrow-alt-circle-left"></span>
-      <span> Sair</span></a>
+        <a href="/aluno/treino" class="order" id="fer"><span class="las la-dumbbell"></span>
+        <span> Treinos</span></a>
+    </li>
+    
+    <li>
+        <a href="/aluno/postagens" class="order"><span class="las la-list"></span>
+        <span> Postagens</span></a>
     </li>
 
+    <li>
+        <a href="/aluno/perfil" class="active"><span class="las la-tools"></span>
+        <span> Configurações</span></a>
+    </li>
+    <li>
+      <a href="/logout" class="order" style="color: red; opacity: 100%"><span class="las la-arrow-alt-circle-left"></span>
+      <span> Sair</span></a>
+    </li>
     </ul>
   </div>
 </div>
@@ -47,7 +55,7 @@
         <label for="nav-toggle">
           <span class="las la-bars"></span>
         </label>
-        Dashboard
+        Perfil
      </h2>
 
       <div class="search-wrapper">
@@ -58,15 +66,16 @@
       <div class="user-wrapper">
         <img src="/img/user.png" width="30px" height="30px" alt="">
         <div>
-          <h4>Dani<br>Teixeira</h4>
-          <small>Dona</small>
+            <h4><%= user.nome_aluno %> <br><%= user.sobrenome_aluno%></h4>
+            <small>Aluno</small>
         </div>
       </div>
     </header>
 
+
     <main>
       <div class="options">
-        <div class="back"><a href="/dashboard/aluno/<%=user.id_aluno%>"><span class="las la-arrow-left"></span></a> Editar aluno</div>
+        <div class="back"><a href="/aluno/perfil"><span class="las la-arrow-left"></span></a> Editar perfil</div>
 
         
         
@@ -102,7 +111,6 @@
               <h3 class="card-title"><strong>Editar aluno</strong></h3>
               <p class="card-text">Insira os seus dados para criar sua conta</p>
 
-              <input style="display: none;" type="text" name="id_aluno" value="<%=user.id_aluno%>" id="id_aluno" required>
 
               <div class="groups">
               <div class="group" style="display: flex; margin-bottom: 1rem;">
@@ -176,9 +184,10 @@
         
         </div>
 
+
     </main>
   </div>
-  <script src="/js/editaluno.js"></script>
+  <script src="/js/editperfil.js"></script>
   
 </body>
 

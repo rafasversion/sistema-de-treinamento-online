@@ -124,8 +124,11 @@
 
         <% if(anamnese) {%>
         <div class="anamnese">
+
+          <div class="title" style="display: flex; justify-content: space-between;">
           <h3 class="titulo-dados-anamese">Anamnese:</h3>
- 
+          <a href="/dashboard/aluno/anamnese/editar/<%= user.id_aluno%>"><button class="editar">Editar</button></a>
+          </div>
 
         <div class="colunas-anamnese">
          <div class="subcolunas-anamnese">

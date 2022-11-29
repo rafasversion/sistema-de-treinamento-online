@@ -418,7 +418,9 @@ fieldset.grupo .campo {
   font-family: sans-serif;
 }
 
-
+.body-treino p {
+  margin-bottom: 5px;
+}
 @media only screen and (max-width: 1200px) {
 
 

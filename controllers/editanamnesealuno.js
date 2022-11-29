@@ -2,12 +2,10 @@ const jwt = require("jsonwebtoken");
 const db = require("../routes/config_db");
 const bcrypt = require("bcryptjs");
 
-const editanamnese = async (req, res) => {
-    const { naturalidade, profissao, peso, altura, tipo_sanguineo, horas_sono, contato_emergencia, historico_exercicio_frequencia, historico_exercicio_tempo, antigo_exercicio, atual_exercicio, frequencia_cardiaca_repouso, uso_suplemento_alimentar, periodo_menstruacao, objetivo, refeicoes, comorbidade_familiar, uso_medicacao, patologia } = req.body
+const editanamnesealuno = async (req, res) => {
+    const { id_aluno, naturalidade, profissao, peso, altura, tipo_sanguineo, horas_sono, contato_emergencia, historico_exercicio_frequencia, historico_exercicio_tempo, antigo_exercicio, atual_exercicio, frequencia_cardiaca_repouso, uso_suplemento_alimentar, periodo_menstruacao, objetivo, refeicoes, comorbidade_familiar, uso_medicacao, patologia } = req.body
 
-    const decoded = jwt.verify(req.cookies.userRegistered, process.env.JWT_SECRET);
-
-    const id_aluno = decoded.id_aluno;
+   
 
                 db.query(`UPDATE anamnese
                 SET naturalidade = '${naturalidade}', 
@@ -33,9 +31,9 @@ const editanamnese = async (req, res) => {
                     if(error) throw error;
                     console.log('id', id_aluno)
                     console.log('r', results)
-                    return res.json({status:"success", success:"Sua anamnese foi editada com sucesso!"});
+                    return res.json({status:"success", success:"Anamnese do aluno editada com sucesso!"});
                 })        
                
     }
 
-module.exports = editanamnese;
+module.exports = editanamnesealuno;

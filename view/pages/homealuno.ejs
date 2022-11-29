@@ -39,7 +39,7 @@
     </li>
 
     <li>
-        <a href="/aluno/configuracoes" class="order"><span class="las la-tools"></span>
+        <a href="/aluno/perfil" class="order"><span class="las la-tools"></span>
         <span> Configurações</span></a>
     </li>
     <li>
@@ -109,13 +109,17 @@
 
         </div>
 <% } %> 
+<% results.forEach(treinos => { %>
+  <%if(treinos){%>
+
+
         <div class="buttons-options">
             <div class="treino" style="margin-top: 3rem;">
              
-              <div class="header-aviso">
+              <div class="header-treino">
                 <p>Treinos</p>
-                <p class="button-avisos">Ver todos<span class="las la-arrow-right"></span></p>
-              </div>
+                <a href="/aluno/treino"><button>Ver todos<span class="las la-arrow-right"></span></button></a>
+               </div>
 
               <div class="cards-treinos">
                 <% results.forEach(treinos => { %>
@@ -128,15 +132,18 @@
                 
                 <p class="<%= treinos.status_treino%>"><%= treinos.status_treino%></p>
               </div>
-  <% }) %> 
+              </div>
+  <% }) %>
+ 
+<% } else { %> 
+ 
 
-  <% results.forEach(treinos => { %>
-  <% if(treinos == null || treinos == undefined) { %> 
-
-    <div class="buttons-options">
       <div class="treino">
-             
-      <p class="header-treino">Treinos <span class="las la-arrow-right"></span></p>
+             <div class="header-treino">
+              <p>Treinos</p>
+              <a href="/aluno/postagens"><button><span class="las la-arrow-right"></span></button></a>
+             </div>
+   
 
       <div class="cards-treinos">
        
@@ -149,35 +156,18 @@
         <p class="incompleto">Incompleto</p>
       </div>
     </div>
+    </div>
     
   <% } %>          
-<% }) %> 
-              </div>
-            </div>
+  <%})%>
+              
 
           <div class="post">
             
-            <p class="header-aviso">Avisos <span class="las la-arrow-right"></span></p>
-
-            <div class="cards-avisos">
-            <% result_aviso.forEach(avisos => { %>
-            <div class="card-aviso">
-              <h4><%= avisos.titulo_post%> </h4>
-              <p><%= avisos.descricao_post%></p>
-              <p class="data"><small>02/10/2022</small></p>
-            </div>
-
-            <% }) %> 
-            
-          </div>
-          </div>
-
-          <div class="post">
-            <div class="header-aviso">
+            <div class="header-treino">
               <p>Avisos</p>
-              <p class="button-avisos">Ver todos<span class="las la-arrow-right"></span></p>
-            </div>
-            
+              <a href="/aluno/postagens"><button>Ver todos<span class="las la-arrow-right"></span></button></a>
+             </div>
 
             <div class="cards-avisos">
             <% result_aviso.forEach(avisos => { %>
@@ -191,10 +181,56 @@
             
           </div>
           </div>
-      </div>
-    </main>
+          
+          
 
-  </div>
+
+
+          <div class="post">
+            
+            <div class="header-treino">
+              <p>Dicas</p>
+              <a href="/aluno/postagens"><button>Ver todas<span class="las la-arrow-right"></span></button></a>
+             </div>
+
+            <div class="cards-avisos">
+            <% result_dica.forEach(dica => { %>
+            <div class="card-aviso">
+              <h4><%= dica.titulo_post%> </h4>
+              <p><%= dica.descricao_post%></p>
+              <p class="data"><small>02/10/2022</small></p>
+            </div>
+
+            <% }) %> 
+            
+          </div>
+          </div>
+          
+
+
+          <div class="post">
+            
+            <div class="header-treino">
+              <p>Lives</p>
+              <a href="/aluno/postagens"><button>Ver todas<span class="las la-arrow-right"></span></button></a>
+             </div>
+
+            <div class="cards-avisos">
+            <% result_live.forEach(live => { %>
+            <div class="card-aviso">
+              <h4><%= live.titulo_post%> </h4>
+              <p><%= live.descricao_post%></p>
+              <p class="data"><small>02/10/2022</small></p>
+            </div>
+
+            <% }) %> 
+            
+          </div>
+          </div>
+         
+          
+        </main>
+
 
   <% } else { %> 
    

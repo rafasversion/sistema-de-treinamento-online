@@ -4,27 +4,51 @@ const jwt = require("jsonwebtoken");
 const listposts = async (req, res) => {
 
   db.query("SELECT * FROM postagens", (err, result) => {
-  db.query("SELECT * FROM treino", (erro, results) => {
   
-    
-    var test = results.map(id => ({value: id.id_treino}))
-    var id = Object.values(test[0])[0]
-    console.log('test', test)
-    console.log('id', id)
-    db.query(`SELECT * FROM exercicios`, (erro, exercicios) => {
+
 
     
-    if (!err) {
+
+  db.query('select * from treino', async (eros, treino) => {
     
-        console.log('result', result);
-        res.render("pages/ferramentas", {result, results, exercicios})
+    
+    
+    if (!err) {
+      if(!eros){
+        let promiseQueue = [];
+        treino.forEach(t => {
+          promiseQueue.push(query(`select * from exercicios where id_treino = ${t.id_treino}`))
+        });
+        let results = await Promise.all(promiseQueue);
+        treino = treino.map(t => {
+          const exercicios = results.find(exs => exs[0]?.id_treino == t.id_treino)?.map(ex => ({...ex}))
+          return {
+            ...t,
+            exercicios
+          }
+        })
+        console.log(treino);
+      }
+        // console.log('result', result);
+        res.render("pages/ferramentas", {result, treino})
       } else {
         console.log(err);  
       }
-    
+
+    })
 })
-  })
-  })
+  
 }
  
+const query = (sql)=>{
+  return new Promise((resolve, reject)=>{
+    db.query(sql, (err, result) => {
+      if(err){
+        return reject(err)
+      }
+      resolve(result);
+    })
+  })
+}
+
 module.exports = listposts;

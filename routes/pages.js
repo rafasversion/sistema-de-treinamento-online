@@ -20,7 +20,12 @@ const concluirtreino = require("../controllers/concluirtreino");
 const postsaluno = require("../controllers/postagensaluno");
 const listpostsedit = require("../controllers/listpostedit");
 const userinfo = require("../controllers/userinfos");
-
+const perfil = require("../controllers/perfil");
+const listperfil = require("../controllers/listperfilinfo");
+const anamneseinfo = require("../controllers/anamneseinfo");
+const listanamnese = require("../controllers/listanamnese");
+const infotreino = require("../controllers/infotreino");
+const infoexercicio = require("../controllers/infoexercicio");
 
 router.get("/", loggedin, (req, res) => {
     if (req.user){
@@ -100,11 +105,28 @@ router.get("/loginadm", loggedinadm, (req, res) => {
 })
 
 
-router.get("/profile", loggedin, (req, res) => {
+router.get("/aluno/perfil", perfil, (req, res) => {
     if (req.user){
         res.render("pages/profile", {status: "loggedin", user:req.user}); 
     } else {
         res.render("pages/profile", {status: "no", user:"nothing"});
+    }
+})
+
+router.get("/aluno/perfil/editar", listperfil, (req, res) => {
+    if (req.user){
+        res.render("pages/editperfil", {status: "loggedin", user:req.user}); 
+    } else {
+        res.render("pages/editperfil", {status: "no", user:"nothing"});
+    }
+})
+
+
+router.get("/aluno/perfil/anamnese/editar", listanamnese, (req, res) => {
+    if (req.user){
+        res.render("pages/editanamnese", {status: "loggedin", user:req.user}); 
+    } else {
+        res.render("pages/editanamnese", {status: "no", user:"nothing"});
     }
 })
 
@@ -160,6 +182,11 @@ router.get("/dashboard/aluno/editar/:id_aluno", userinfo, (req, res) =>{
     // res.render("alunoinfo", {result: result[0]})
   });
 
+  router.get("/dashboard/aluno/anamnese/editar/:id_aluno", anamneseinfo, (req, res) =>{
+    // res.render("alunoinfo", {result: result[0]})
+  });
+
+
 router.get("/dashboard/aluno/novotreino/:id_aluno", novotreino, (req, res) =>{
         res.render("pages/novotreino", { aluno: req.aluno, anamnese:req.anamnese}); 
         
@@ -168,6 +195,14 @@ router.get("/dashboard/aluno/novotreino/:id_aluno", novotreino, (req, res) =>{
   router.get("/dashboard/aluno/novotreino/exercicios/:id_aluno", listexer, (req, res) =>{
     res.render("pages/exercicios", { aluno: req.aluno, anamnese:req.anamnese, treino:req.treino, exercicios}); 
 });
+
+router.get("/dashboard/treino/editar/:id_treino", infotreino, (req, res) => {
+    res.render("pages/editreino", { treino:req.treino }); 
+})
+
+router.get("/dashboard/exercicio/editar/:id_exercicio", infoexercicio, (req, res) => {
+    res.render("pages/editreino", { exercicio:req.exercicio }); 
+})
 
 router.get("/user", loggedin, (req, res) => {
     if (req.user){

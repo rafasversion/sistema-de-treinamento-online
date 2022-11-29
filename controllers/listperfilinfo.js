@@ -1,8 +1,13 @@
 const db = require("../routes/config_db");
 const jwt = require("jsonwebtoken");
 
-const viewuser = async (req, res) => {
-  let id_aluno = req.params.id_aluno;
+const listperfil = async (req, res) => {
+
+    
+  const decoded = jwt.verify(req.cookies.userRegistered, process.env.JWT_SECRET);
+
+  const id_aluno = decoded.id_aluno;
+
   
   db.query(`SELECT * FROM aluno WHERE id_aluno = ${id_aluno}`, (err, result) => {
 
@@ -13,8 +18,7 @@ const viewuser = async (req, res) => {
     if (!err) {
      req.anamnese = resultes[0];
      req.user = result[0];
-     res.render('pages/alunoinfo', { user:req.user, anamnese:req.anamnese });
-
+     res.render('pages/editperfil', { user:req.user, anamnese:req.anamnese });
      console.log(result[0]);
      
     } else {
@@ -26,4 +30,4 @@ const viewuser = async (req, res) => {
 })
 }
 
-module.exports = viewuser;
+module.exports = listperfil;

@@ -15,7 +15,12 @@ const concluirtreino = require("./concluirtreino");
 const postaluno = require("./postagensaluno")
 const editpost = require("./editpost");
 const editaluno = require("./editaluno");
+const editanamnesealuno = require("./editanamnesealuno");
+const editperfil = require("./editperfil");
 const editanamnese = require("./editanamnese");
+const editreino = require("./editreino");
+const editexercicio = require("./editexercicio");
+
 
 router.post("/register", register)
 router.post("/login", login)
@@ -31,5 +36,11 @@ router.post("/concluirtreino", concluirtreino)
 router.post("/postaluno", postaluno)
 router.post("/editpost", editpost)
 router.post("/editaluno", editaluno)
+router.post("/editanamnesealuno", editanamnesealuno)
+router.post("/editperfil", editperfil)
 router.post("/editanamnese", editanamnese)
+router.post("/editreino", editreino)
+router.post("/editexercicio", editexercicio)
+
+
 module.exports = router;

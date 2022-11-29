@@ -1,284 +1,212 @@
 <!DOCTYPE html>
-<html lang="pt-br">
+<html>
 
-<head></head>
-<meta charset="UTF-8">
-<meta http-equiv="X-UA-Compatible" content="IE-edge">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0-beta1/dist/css/bootstrap.min.css" rel="stylesheet"
-  integrity="sha384-0evHe/X+R7YkIZDRvuzKMRqM+OrBnVFBL6DOitfPri4tjfHxaWutUpFmBp4vmVor" crossorigin="anonymous">
-<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
-<title>Perfil</title>
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+  <title>Perfil</title>
+  <link rel="stylesheet" href="https://maxst.icons8.com/vue-static/landings/line-awesome/line-awesome/1.3.0/css/line-awesome.min.css">
+  <link href="/css/alunoinfo.css" rel="stylesheet" type="text/css" />
+  <link rel="shortcut icon" href="/img/logo.png">
 </head>
 
 <body>
-  <style>
-    body {
-      background: url("img/bannerlogin.jpeg");
-      background-position: center;
-      background-repeat: no-repeat;
-      background-size: cover;
-      width: 100%;
-      height: 700px;
 
-    }
+<input type="checkbox" id="nav-toggle">
+<div class="sidebar">
+  <div class="sidebar-brand">
+    <img class="logo" src="/img/logo_2.png"></h2>
+  </div>
 
+  <div class="sidebar-menu">
+    <ul>
+    
+    <li>
+        <a href="/aluno/home" class="order"><span class="las la-home"></span>
+        <span> Página Inicial</span></a>
+    </li>
+    
+    <li>
+        <a href="/aluno/treino" class="order" id="fer"><span class="las la-dumbbell"></span>
+        <span> Treinos</span></a>
+    </li>
+    
+    <li>
+        <a href="/aluno/postagens" class="order"><span class="las la-list"></span>
+        <span> Postagens</span></a>
+    </li>
 
-    .logo {
-      display: flex;
-      flex-direction: row;
-      align-items: center;
-      justify-content: space-around;
-      width: 300px;
-      height: 40%;
-      text-align: center;
-      margin-bottom: 30px;
-    }
+    <li>
+        <a href="/aluno/perfil" class="active"><span class="las la-tools"></span>
+        <span> Configurações</span></a>
+    </li>
+    <li>
+      <a href="/logout" class="order" style="color: red; opacity: 100%"><span class="las la-arrow-alt-circle-left"></span>
+      <span> Sair</span></a>
+    </li>
+    </ul>
+  </div>
+</div>
 
+  <div class="main-content">
+    <header>
+     <h2>
+        <label for="nav-toggle">
+          <span class="las la-bars"></span>
+        </label>
+        Perfil
+     </h2>
 
+      <div class="search-wrapper">
+        <span class="las la-search"></span>
+        <input type="search" placeholder="Procure aqui">
+      </div>
 
-    .cabecalho {
-      display: flex;
-      flex-direction: row;
-      align-items: center;
-      justify-content: space-around;
-      padding: 24px;
-      background-color: transparent;
-    }
-
-    .logo1 {
-      height: 50px;
-    }
-
-    .menu {
-      display: flex;
-      gap: 32px;
-    }
-
-    .nav-link {
-      color: white;
-      font-family: 'Sarala', sans-serif;
-      font-size: 18px;
-      height: 45px;
-      align-items: center;
-    }
-
-    .mask {
-      background: linear-gradient(180deg, #060E1A 0%, rgba(5, 12, 22, 0.844189) 22.98%, rgba(0, 0, 0, 0.16) 100%);
-    }
-
-.dropdown {
-  position: relative;
-  display: inline-block;
-  color: white;
-  font-family: 'Sarala', sans-serif;
-  font-size: 18px;
-  font-style: none;
-}
-
-
-.dropdown #b{
-  display: none;
-}
-
-.dropdown-content {
-  display: none;
-  position: absolute;
-  background-color: #f9f9f9;
-  min-width: 160px;
-  box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
-  border-radius: 10px;
-  padding: 12px 16px;
-  z-index: 1;
-  color:#060E1A;
-}
-
-.dropdown:hover .dropdown-content {
-  display: block;
-}
-
-
-.dropdown:hover #a {
-  display: none;
-}
-.dropdown:hover #b {
-  display:inline;
-}
-
-.border {
-  border-top: #060E1A 2px solid;
-}
-
-#dc1 {
-  color: black;
-}
-
-#dc2 {
-  color: black;
-  border-bottom: 2px solid grey;
-}
-
-#dc1:hover {
-color: blue;
-}
-
-#dc2:hover {
-color: blue;
-}
-
-
-#sair {
-  margin-top: 20px;
-  color: red;
-  text-decoration: none
-}
-
-.conteudo {
-   
-   margin-bottom: 42px;
- 
-}
-
-.conteudo-principal {
-   display: flex;
-   flex-direction: row;
-   align-items: left;
-   
-   height: 900px;
-   max-width: 1640px;
-   margin-top: 0px;
-   margin-left: 20%;
-   margin-right: 20%;
-}
-
-
-.profile {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: space-around;
-}
-
-.d-flex {
-  gap: 10px;
-}
-
-.card-header {
-  display: flex;
-  flex-direction: row;
-  align-items: center;
-  justify-content:space-around;
-}
-
-#titulo {
-  font-size: 20px;
-  font-family: 'Sarala', sans-serif;
-  color:black;
-  display: flex;
-  align-items: center;
-  text-align: center;
-} 
-
-.font-weight-bold {
-  color: black;
-}
-
-.text {
-  color:gray;
-}
-
-.card {
-  width: 900px;
-}
-
-.logout {
-  color: red; text-decoration: none;
-}
-
-.logout:hover {
-  color: white; text-decoration: none;
-}
-@media only screen and (max-width: 768px) {
-  .card {
-  width: 350px;
-}
-}
-  </style>
-
-
-
-  <div class="mask">
-    <header class="cabecalho">
-      <img class="logo1" src="img/logo_2.png">
-      <nav class="menu">
-
-        <a class="nav-link" href="/">Home</a>
-        <a class="nav-link" href="/">Histórico</a>
-
-        
-        <% if(status == "loggedin") {%> 
-
-        <div class="dropdown">
-         <span><span class="fa fa-user"></span> Perfil <span class="fa fa-caret-down" id="a"></span><span class="fa fa-caret-up" id="b"></span></span>
-         <div class="dropdown-content">
-          <a class="nav-link" id="dc1" href="/profile">Ver perfil</a>
-          <a class="nav-link" id="dc2" href="/">Configurações</a>
-          
-          <div class="d-grid gap-2">
-            <button class="btn btn-outline-danger" id="sair"><a href="/logout" class="logout"><span class="fa fa-sign-out"></span>Sair</a></button>
-          </div>
-         </div>
+      <div class="user-wrapper">
+        <img src="/img/user.png" width="30px" height="30px" alt="">
+        <div>
+            <h4><%= user.nome_aluno %> <br><%= user.sobrenome_aluno%></h4>
+            <small>Aluno</small>
         </div>
-        <% } else { %> 
-          <a class="nav-link" href="/login"><span class="fa fa-sign-in"></span> Login</a>
-        <% } %> 
-      </nav>
+      </div>
     </header>
 
 
+    <main>
+      <div class="options">
+        <div class="back"><a href="/dashboard"><span class="las la-arrow-left"></span></a> Perfil do aluno</div>
 
-   <div class="profile">
-   
-        <div class="card rounded mt-5" style="border: none;">
-          <div class="card-header bg-light align-items-center text-center">
-            <p id="titulo">Perfil do Usuário</p>
+        <div class="buttons">
+          
+          <a href="/aluno/perfil/editar"><button class="editar">Editar</button></a>
+          <a href="/aluno/perfil/deletar/<%= user.id_aluno%>"><button class="excluir">Excluir</button></a>
+        </div>
+        
+      </div>
+
+      <% let data = user.data_nasc_aluno 
+      let dataform = ((data.getDate() )) + "/" + ((data.getMonth() + 1)) + "/" + data.getFullYear(); %>
+
+      <% function getAge(dateString) {
+         const today = new Date();
+         const birthDate = new Date(dateString);
+         let age = today.getFullYear() - birthDate.getFullYear();
+         const m = today.getMonth() - birthDate.getMonth();
+
+         if (m < 0 || (m === 0 && today.getDate() < birthDate.getDate())) {
+            age--;
+         }
+         return age;
+      }%> 
+
+      <% var cpf = user.cpf_aluno;
+      function formataCPF(cpf){
+        cpf = cpf.replace(/[^\d]/g, "");
+
+        return cpf.replace(/(\d{3})(\d{3})(\d{3})(\d{2})/, "$1.$2.$3-$4")
+      }
+      %>
+      <div class="principal-aluno">
+
+          <div class="card-principal">
+            <img class="alunoimg" src="/img/user.png">
+            <p style="margin-top: 2rem;"><strong><%= user.nome_aluno%> <%= user.sobrenome_aluno%></strong></p>
+            
           </div>
-          <div class="row g-0">
-            <div class="col-md-4">
-              <div class="d-flex flex-column align-items-center text-center p-3 py-5" style="border-right: 1px solid rgb(199, 196, 196);"><img  style="border: 5px solid #aaa;" class="rounded-circle mt-5"
-                width="150px"
-                src="img/user.png"><span
-                class="font-weight-bold">
-                <strong><%= user.nome_aluno %></strong>
-              </span><span class="text">
-                <%= user.email_aluno%>
-              </span>
-              <div class="d-grid gap-2">
-              <button type="submit" class="btn btn-primary" style="--bs-btn-border-radius: .3rem; width:250px;"><span class="fa fa-edit"></span> Editar</button> 
+
+          <div class="card-secundario">
+            <h3 class="titulo-dados">Dados gerais:</h3>
+
+           
+            <p class="dados-gerais">E-mail: <%= user.email_aluno%></p>
+            <p class="dados-gerais">CPF: <%= formataCPF(cpf)%></p>
+            <p class="dados-gerais">Data de nascimento: <%=  dataform%> </p>
+            <p class="dados-gerais">Idade: <%= getAge(data)%> anos</p>
+            <p class="dados-gerais">Sexo: <%= user.sexo_aluno%></p>
+            <p class="dados-gerais">Celular: <%= user.telefone_aluno%></p>
+       
+          </div>
+        
+        </div>
+
+
+        <% if(anamnese) {%>
+        <div class="anamnese">
+          <div class="title" style="display: flex; justify-content: space-between;">
+            <h3 class="titulo-dados-anamese">Anamnese:</h3>
+            <a href="/aluno/perfil/anamnese/editar/"><button class="editar">Editar</button></a>
             </div>
-              </div>
+
+        <div class="colunas-anamnese">
+         <div class="subcolunas-anamnese">
+
+           <div class="coluna-um">
+             <p class="dados-gerais-anamnese">Profissão: <%= anamnese.profissao%></p>
+             <p class="dados-gerais-anamnese">Naturalidade: <%= anamnese.naturalidade%></p>
+             <p class="dados-gerais-anamnese">Contato de emergência: <%= anamnese.contato_emergencia%></p>
+             </div>
+ 
+           <div class="coluna-dois">
+             <p class="dados-gerais-anamnese">Altura: <%= anamnese.altura %></p>
+             <p class="dados-gerais-anamnese">Peso: <%= anamnese.peso%></p>
+             <p class="dados-gerais-anamnese">Tipo sanguíneo: <%= anamnese.tipo_sanguineo%></p>
+           </div>
+           
+
+           <div class="coluna-tres">
+            <p class="dados-gerais-anamnese">Horas de sono: <%= anamnese.horas_sono%></p>
+            <p class="dados-gerais-anamnese">Período mestrual: <%= anamnese.periodo_menstruacao%></p>
+            <p class="dados-gerais-anamnese">Objetivo do aluno: <%= anamnese.objetivo%></p>
             </div>
 
            
-            <div class="col-md-8">
-              <div class="card-body">
-                
-                <% let data = user.data_nasc_aluno
-                let dataform = ((data.getDate() )) + "/" + ((data.getMonth() + 1)) + "/" + data.getFullYear(); %>
-  
-                <p class="card-text mt-4"><strong>Nome completo: </strong><%= user.nome_aluno %> <%= user.sobrenome_aluno %></p>
-                <p class="card-text"><strong>Data de Nascimento: </strong><%= dataform %></p>
-                
-              </div>
+         </div>
+
+           <div class="subcolunas-anamnese">
+           
+             
+ 
+           <div class="coluna-tres">
+           <p class="dados-gerais-anamnese">Frequência de Exercícios: <%= anamnese.historico_exercicio_frequencia%></p>
+           <p class="dados-gerais-anamnese">Tempo de exercícios: <%= anamnese.historico_exercicio_tempo%></p>
+           <p class="dados-gerais-anamnese">Frequência cardíaca: <%= anamnese.frequencia_cardiaca_repouso%></p>
+           </div>
+
+           <div class="coluna-tres">
+            <p class="dados-gerais-anamnese">Suplementos alimentares: <%= anamnese.uso_suplemento_alimentar%></p>
+            <p class="dados-gerais-anamnese">Medicamentos: <%= anamnese.uso_medicacao%></p>
+            <p class="dados-gerais-anamnese">Patologia: <%= anamnese.patologia%></p>
             </div>
-          </div>
+ 
+           </div>
+           </div>
+         </div>
+       </div>
+<% } else {%>
+ 
+  <div class="anamnese">
+    <h3 class="titulo-dados-anamese">Anamnese:</h3>
+
+
+  <div class="colunas-anamnese">
+   <div class="subcolunas-anamnese">
+
+     <div class="coluna-um">
+      <p>Aluno ainda não possui anamnese</p>
       </div>
-</div>
 
-    <script>
-     
-    </script>
-
+      <div class="coluna-dois">
+        <button class="btn-aviso">Enviar aviso</button>
+      </div>
+      </div>
+      </div>
+      </div>
+      <% } %> 
+    </main>
+  </div>
+  
+  
 </body>
 
 </html>
+

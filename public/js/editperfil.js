@@ -1,7 +1,6 @@
 
 form.addEventListener("submit", () => {
-    const editaluno = {
-      id_aluno: id_aluno.value,
+    const editperfil = {
       email_aluno: email_aluno.value,
       nome_aluno: nome_aluno.value,
       sobrenome_aluno: sobrenome_aluno.value,
@@ -11,9 +10,9 @@ form.addEventListener("submit", () => {
       cpf_aluno: cpf_aluno.value
     }
   
-    fetch("/api/editaluno", {
+    fetch("/api/editperfil", {
       method: "POST",
-      body: JSON.stringify(editaluno),
+      body: JSON.stringify(editperfil),
       headers: {
         "Content-Type": "application/json"
       }

@@ -17,14 +17,18 @@ const listtreinos = async (req, res) => {
     
       db.query(`SELECT * FROM anamnese WHERE id_aluno = ${id_aluno}`, (err, resultes) => {
 
-        db.query(`SELECT * FROM postagens WHERE tipo_post = 'Lives'`, (err, result_aviso) => {
+        db.query(`SELECT * FROM postagens WHERE tipo_post = 'Avisos'`, (err, result_aviso) => {
+
+          db.query(`SELECT * FROM postagens WHERE tipo_post = 'Dicas'`, (err, result_dica) => {
+
+            db.query(`SELECT * FROM postagens WHERE tipo_post = 'Lives'`, (err, result_live) => {
 
           
       if (!err) {
       req.anamnese = resultes[0];
       req.user = result[0];
       console.log(result_aviso)
-      return res.render("pages/homealuno", { results, user:req.user, anamnese:req.anamnese, result_aviso})
+      return res.render("pages/homealuno", { results, user:req.user, anamnese:req.anamnese, result_aviso, result_dica, result_live})
 
       
       } else {
@@ -32,6 +36,8 @@ const listtreinos = async (req, res) => {
       }
     
     
+    })
+  })
   })
   })
 })

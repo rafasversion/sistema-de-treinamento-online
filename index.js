@@ -2,6 +2,7 @@ const express = require("express");
 const db = require("./routes/config_db.js");
 const app = express();
 const cookie = require("cookie-parser");
+const fileUpload = require("express-fileUpload");
 
 const stripePublicKey = process.env.STRIPE_PUBLIC_KEY
 const stripeSecretKey = process.env.STRIPE_SECRET_KEY
@@ -15,6 +16,8 @@ app.set("view engine", "ejs");
 app.set("views", "./view");
 app.use(cookie());
 app.use(express.json());
+app.use(fileUpload());
+
 db.connect((err) => {
  if (err) throw err;
  console.log("database conectada");
@@ -23,5 +26,6 @@ db.connect((err) => {
 
 app.use("/", require("./routes/pages"));
 app.use("/api", require("./controllers/auth"));
+
 
 app.listen(PORT);

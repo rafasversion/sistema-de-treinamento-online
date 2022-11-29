@@ -13,7 +13,7 @@ const userinfo = async (req, res) => {
     if (!err) {
      req.anamnese = resultes[0];
      req.user = result[0];
-     res.render('pages/editaluno', { user:req.user, anamnese:req.anamnese });
+     res.render('pages/editaluno', { user:req.user });
      console.log(result[0]);
      
     } else {

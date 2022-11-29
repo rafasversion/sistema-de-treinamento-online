@@ -12,7 +12,10 @@ function youtube_parser(url){
 db.query(`SELECT MAX(id_treino) FROM treino`, (erra, resulta) => {
 
     const { nome_exercicio, video_exercicio, recursos_exercicio, series_exercicio, observacao_exercicio, repeticoes_exercicio, intervalo_exercicio } = req.body
+    
     const videoId = youtube_parser(video_exercicio)
+
+
     id_treino = Object.values(resulta[0])[0]
     console.log(id_treino)
  if (!erra) {

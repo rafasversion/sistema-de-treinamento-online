@@ -22,7 +22,7 @@ const treinoaluno = async (req, res) => {
         
       if (!err) {
       req.anamnese = resultes[0];
-      req.user = result[0]
+      req.user = result[0];
       
       res.render("pages/treino", {results, user:req.user, anamnese:req.anamnese, exercicios})
       
